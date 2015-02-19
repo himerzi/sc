@@ -10,14 +10,14 @@
 	<string>sc</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>795CC01590DB4252E3D57BC3FF814592A54425F8</key>
+		<key>BF85EF014170B761FEAB903A10A6FD5788433510</key>
 		<string>github.com:himerzi/sc.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>sc/sc.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>795CC01590DB4252E3D57BC3FF814592A54425F8</key>
+		<key>BF85EF014170B761FEAB903A10A6FD5788433510</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>795CC01590DB4252E3D57BC3FF814592A54425F8</string>
+	<string>BF85EF014170B761FEAB903A10A6FD5788433510</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>795CC01590DB4252E3D57BC3FF814592A54425F8</string>
+			<string>BF85EF014170B761FEAB903A10A6FD5788433510</string>
 			<key>IDESourceControlWCCName</key>
 			<string>code</string>
 		</dict>

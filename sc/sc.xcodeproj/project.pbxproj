@@ -29,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		6C0D77D41A27947A006D4A41 /* myex.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myex.sc; sourceTree = "<group>"; };
+		6C1B3ECF1A964AA900B7DF92 /* scoped-seq.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "scoped-seq.sc"; sourceTree = "<group>"; };
 		6C95BE7F1A76C05F00BD3C0D /* chains.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chains.sc; sourceTree = "<group>"; };
 		6CDC8E7C1A28C72800A75326 /* scp.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = scp.ini; path = DerivedData/sc/Build/Products/Debug/scp.ini; sourceTree = "<group>"; };
 		D554E11317DF3E770056FC43 /* sc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +81,7 @@
 			children = (
 				6C0D77D41A27947A006D4A41 /* myex.sc */,
 				6C95BE7F1A76C05F00BD3C0D /* chains.sc */,
+				6C1B3ECF1A964AA900B7DF92 /* scoped-seq.sc */,
 				D554E12417DF3EDE0056FC43 /* sc_functions.c */,
 				D554E12517DF3EDE0056FC43 /* sc_functions.h */,
 				D554E11F17DF3EDE0056FC43 /* systemic9.c */,
