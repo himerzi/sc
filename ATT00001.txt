@@ -1,0 +1,59 @@
+
+
+
+> On 29 Oct 2014, at 23:13, Detmold, Michael <michael.detmold.10@ucl.ac.uk> wrote:
+> 
+> Hi,
+> 
+> My apologies, here it is:
+> 
+> Student's Name: Michael Detmold
+> 
+> Supervisor(s) Name: Peter Bentley
+> 
+> Project Title: 
+> Automatic Programming on the Systemic Computer
+> Brief Outline of Aims: 
+> 
+> This project aims to enable the first automatic programming of a systemic computer, i.e., a systemic program designed to build and adapt itself to solve a given programming task without human intervention. Inspiration and test problems will be taken from genetic programming literature. Two approaches will be investigated: the use of the SC to create parallel programs automatically in order to solve parallel problems, and the use of the SC to create sequential programs automatically in order to solve sequential problems. Given the parallel nature of the SC, the former is potentially simpler, but the latter would enable the use of existing benchmark problems. The work would make use of the most recent OpenCL implementation of the SC, compiler and visualiser, and may also make use of a dedicated Mac Pro.
+> 
+> SUPERVISOR'S COMMENTS:
+> 
+> Best,
+> 
+> Michael
+> 
+> ________________________________________
+> From: Roberts, Graham
+> Sent: Wednesday, October 29, 2014 2:16 PM
+> To: Detmold, Michael
+> Subject: Final Year Project
+> 
+> Hello,
+> 
+> I still don¹t have any information about which final year project you are
+> doing. Please reply to this email as soon as you can to let me know about
+> your project.
+> 
+> 
+> Graham
+> 
+> --
+> ---------------------------------------------------------------------------
+> -------------------------------------
+> Dr. Graham Roberts           Departmental Tutor, Director of Studies, room
+> 5.07a
+> UCL Computer Science         email: G.Roberts@cs.ucl.ac.uk
+> Malet Place Engineering Bld. url: http://www.cs.ucl.ac.uk/staff/G.Roberts
+> UCL                          phone: +44 (0)20 7679 3711
+> Gower Street, London         fax: +44 (0)20 7387 1397
+> WC1E 6BT, ENGLAND
+> ---------------------------------------------------------------------------
+> -------------------------------------
+> 
+> 
+> 
+> 
+> 
+> 
+

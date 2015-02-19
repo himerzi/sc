@@ -1,0 +1,203 @@
+Tsc
+v5
+r1
+cCheck dependencies
+cCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o "/Users/peterbentley/My Programs/sc/sc/sc_functions.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.o "/Users/peterbentley/My Programs/sc/sc/timer.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o "/Users/peterbentley/My Programs/sc/sc/systemic8.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.o "/Users/peterbentley/My Programs/sc/sc/loadsc.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.o "/Users/peterbentley/My Programs/sc/sc/user/AIS.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cLd "/Users/peterbentley/My Programs/sc/Build/Products/Debug/sc" normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c0000000051BCABC500000000000000AA
+t1371319237
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/time.h
+c0000000050798B22000000000000178E
+t1350142754
+s6030
+
+N/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.o
+t2
+s0
+
+N/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.o
+t2
+s0
+
+N/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc.LinkFileList
+c0000000052332BB4000000000000022B
+t1379085236
+s555
+
+N/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o
+t2
+s0
+
+N/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o
+t2
+s0
+
+N/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.o
+t2
+s0
+
+N/Users/peterbentley/My Programs/sc/Build/Products/Debug/sc
+t2
+s0
+
+N/Users/peterbentley/My Programs/sc/sc/loadsc.c
+c00000000523327FC000000000000A3F5
+t1379084284
+s41973
+
+N/Users/peterbentley/My Programs/sc/sc/loadsc.h
+c00000000523327BA0000000000000918
+t1379084218
+s2328
+
+N/Users/peterbentley/My Programs/sc/sc/sc_functions.c
+c00000000523324C400000000000035EE
+t1379083460
+s13806
+
+N/Users/peterbentley/My Programs/sc/sc/sc_functions.h
+c00000000523324AE0000000000000DCF
+t1379083438
+s3535
+
+N/Users/peterbentley/My Programs/sc/sc/systemic8.c
+c000000005233270E000000000000DBBE
+t1379084046
+s56254
+i"systemic8.h"
+i<time.h>
+i"timer.h"
+i"sc_functions.h"
+i"loadsc.h"
+
+N/Users/peterbentley/My Programs/sc/sc/systemic8.h
+c00000000523328580000000000002194
+t1379084376
+s8596
+
+N/Users/peterbentley/My Programs/sc/sc/timer.c
+c000000005230821E00000000000007F3
+t1378910750
+s2035
+
+N/Users/peterbentley/My Programs/sc/sc/timer.h
+c00000000523081FD000000000000066E
+t1378910717
+s1646
+
+N/Users/peterbentley/My Programs/sc/sc/user/AIS.c
+c0000000052330804000000000000A733
+t1379076100
+s42803
+
+CBuild AST from "/Users/peterbentley/My Programs/sc/sc/loadsc.c"
+r0
+
+CBuild AST from "/Users/peterbentley/My Programs/sc/sc/sc_functions.c"
+r0
+
+CBuild AST from "/Users/peterbentley/My Programs/sc/sc/systemic8.c"
+r0
+
+CBuild AST from "/Users/peterbentley/My Programs/sc/sc/timer.c"
+r0
+
+CBuild AST from "/Users/peterbentley/My Programs/sc/sc/user/AIS.c"
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies2bdf833463e3b741^b83d8d3463e3b741^---0#1#0#--18"Check dependencies36"18AD09F5-B77B-475E-A5DE-A1744CC8B4EB-
+
+CCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.o "/Users/peterbentley/My Programs/sc/sc/user/AIS.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s400778036.605165
+e400778036.694352
+r1
+xCompileC
+xBuild/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.o
+x/Users/peterbentley/My Programs/sc/sc/user/AIS.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Compile /Users/peterbentley/My Programs/sc/sc/user/AIS.c34109b3463e3b741^ecc0b13463e3b741^---0#0#0#-19%DVTDocumentLocation2@66"file://localhost/Users/peterbentley/My%20Programs/sc/sc/user/AIS.c0000000000000000^2556"CompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.o sc/user/AIS.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/peterbentley/My Programs/sc"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-generated-files.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-own-target-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-all-target-headers.hmap" -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-project-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Products/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources/x86_64" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources" "-F/Users/peterbentley/My Programs/sc/Build/Products/Debug" -MMD -MT dependencies -MF "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.d" --serialize-diagnostics "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.dia" -c "/Users/peterbentley/My Programs/sc/sc/user/AIS.c" -o "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.o"36"1AAB3270-0879-4679-BF7B-B3C476D78F00-
+
+CCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.o "/Users/peterbentley/My Programs/sc/sc/loadsc.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s400778036.554312
+e400778036.680430
+r1
+xCompileC
+xBuild/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.o
+x/Users/peterbentley/My Programs/sc/sc/loadsc.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Compile /Users/peterbentley/My Programs/sc/sc/loadsc.c71038e3463e3b741^cf2fae3463e3b741^---0#0#0#-19%DVTDocumentLocation2@64"file://localhost/Users/peterbentley/My%20Programs/sc/sc/loadsc.c0000000000000000^2564"CompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.o sc/loadsc.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/peterbentley/My Programs/sc"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-generated-files.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-own-target-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-all-target-headers.hmap" -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-project-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Products/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources/x86_64" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources" "-F/Users/peterbentley/My Programs/sc/Build/Products/Debug" -MMD -MT dependencies -MF "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.d" --serialize-diagnostics "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.dia" -c "/Users/peterbentley/My Programs/sc/sc/loadsc.c" -o "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.o"36"B0BA34E3-1782-4D52-8329-558805253A32-
+
+CCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o "/Users/peterbentley/My Programs/sc/sc/sc_functions.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s400778036.554104
+e400778036.646868
+r1
+xCompileC
+xBuild/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o
+x/Users/peterbentley/My Programs/sc/sc/sc_functions.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/peterbentley/My Programs/sc/sc/sc_functions.c76fa8d3463e3b741^cfa4a53463e3b741^---0#0#0#-19%DVTDocumentLocation2@70"file://localhost/Users/peterbentley/My%20Programs/sc/sc/sc_functions.c0000000000000000^2600"CompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o sc/sc_functions.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/peterbentley/My Programs/sc"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-generated-files.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-own-target-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-all-target-headers.hmap" -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-project-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Products/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources/x86_64" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources" "-F/Users/peterbentley/My Programs/sc/Build/Products/Debug" -MMD -MT dependencies -MF "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.d" --serialize-diagnostics "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.dia" -c "/Users/peterbentley/My Programs/sc/sc/sc_functions.c" -o "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o"36"D19BE9AB-F907-463E-950A-EBF5B2B97505-
+
+CCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o "/Users/peterbentley/My Programs/sc/sc/systemic8.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s400778036.554117
+e400778036.700494
+r1
+xCompileC
+xBuild/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o
+x/Users/peterbentley/My Programs/sc/sc/systemic8.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/peterbentley/My Programs/sc/sc/systemic8.c:1241:8: warning: unused variable 'j' [-Wunused-variable]
+o        int i,j,fn;
+o              ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Compile /Users/peterbentley/My Programs/sc/sc/systemic8.c21028e3463e3b741^ca52b33463e3b741^-164"/Users/peterbentley/My Programs/sc/sc/systemic8.c:1241:8: warning: unused variable 'j' [-Wunused-variable]        int i,j,fn;              ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@19"Unused variable 'j'-400778036#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@67"file://localhost/Users/peterbentley/My%20Programs/sc/sc/systemic8.c0000000000000000^1240#7#1240#7#47730#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@67"file://localhost/Users/peterbentley/My%20Programs/sc/sc/systemic8.c0000000000000000^2582"CompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o sc/systemic8.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/peterbentley/My Programs/sc"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-generated-files.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-own-target-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-all-target-headers.hmap" -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-project-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Products/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources/x86_64" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources" "-F/Users/peterbentley/My Programs/sc/Build/Products/Debug" -MMD -MT dependencies -MF "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.d" --serialize-diagnostics "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.dia" -c "/Users/peterbentley/My Programs/sc/sc/systemic8.c" -o "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o"36"9492B9C2-F669-459E-8EC2-F1798220CD65-
+
+CCompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.o "/Users/peterbentley/My Programs/sc/sc/timer.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s400778036.554110
+e400778036.603856
+r1
+xCompileC
+xBuild/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.o
+x/Users/peterbentley/My Programs/sc/sc/timer.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Compile /Users/peterbentley/My Programs/sc/sc/timer.cc1008e3463e3b741^a5a19a3463e3b741^---0#0#0#-19%DVTDocumentLocation2@63"file://localhost/Users/peterbentley/My%20Programs/sc/sc/timer.c0000000000000000^2558"CompileC Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.o sc/timer.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/peterbentley/My Programs/sc"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-generated-files.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-own-target-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-all-target-headers.hmap" -iquote "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/sc-project-headers.hmap" "-I/Users/peterbentley/My Programs/sc/Build/Products/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources/x86_64" "-I/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/DerivedSources" "-F/Users/peterbentley/My Programs/sc/Build/Products/Debug" -MMD -MT dependencies -MF "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.d" --serialize-diagnostics "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.dia" -c "/Users/peterbentley/My Programs/sc/sc/timer.c" -o "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.o"36"5A4CFE8A-B312-4CD1-B337-0E5D7EFD90FC-
+
+CLd "/Users/peterbentley/My Programs/sc/Build/Products/Debug/sc" normal x86_64
+s400778036.707160
+e400778036.736702
+r0
+xLd
+x/Users/peterbentley/My Programs/sc/Build/Products/Debug/sc
+xnormal
+xx86_64
+oduplicate symbol _systemfunctions in:
+o    /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o
+o    /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o
+old: 1 duplicate symbol for architecture x86_64
+oclang: error: linker command failed with exit code 1 (use -v to see invocation)
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Link /Users/peterbentley/My Programs/sc/Build/Products/Debug/sc931bb53463e3b741^6397bc3463e3b741^-402"duplicate symbol _systemfunctions in:    /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o    /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.old: 1 duplicate symbol for architecture x86_64clang: error: linker command failed with exit code 1 (use -v to see invocation)2(21%IDEActivityLogMessage2@42"1 duplicate symbol for architecture x86_64-400778036#275#47#-0#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@65"Linker command failed with exit code 1 (use -v to see invocation)-400778036#322#80#-2#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#30"Apple Mach-O Linker (ld) Error--0#0#0#--684"Ld Build/Products/Debug/sc normal x86_64    cd "/Users/peterbentley/My Programs/sc"    setenv MACOSX_DEPLOYMENT_TARGET 10.8    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk "-L/Users/peterbentley/My Programs/sc/Build/Products/Debug" "-F/Users/peterbentley/My Programs/sc/Build/Products/Debug" -filelist "/Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc.LinkFileList" -mmacosx-version-min=10.8 -o "/Users/peterbentley/My Programs/sc/Build/Products/Debug/sc"36"1D9A29D5-BCF5-49C2-B99C-B43889543C15-
+

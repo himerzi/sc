@@ -1,0 +1,6 @@
+00000000531e66270000000000023dda 90257018a5bc5dffe4c9ea49ca1ec340 ffffffffffffffffffffffffffffffff 126952 /Users/peterbentley/My Programs/sc/Build/Products/Debug/sc
+0000000052ed955900000000000002ae 931a98da2d80ad61decbc6eeb7c1a00c ffffffffffffffffffffffffffffffff 36244 /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/AIS.o
+000000005327b3d90000000000000585 bf7c51b41f4ae100661e132afca4398c ffffffffffffffffffffffffffffffff 73440 /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/loadsc.o
+0000000000237d770000000000000f91 99629aed0e86f017f946101678545979 ffffffffffffffffffffffffffffffff 30460 /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/sc_functions.o
+0000000053493ef500000000000003fc 39cc0eacfae520e1a7bf64c2ec5fccee ffffffffffffffffffffffffffffffff 6708 /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/timer.o
+00000000002362240000000000002445 11ab34fd3de494014bfbe9fae6654389 ffffffffffffffffffffffffffffffff 72132 /Users/peterbentley/My Programs/sc/Build/Intermediates/sc.build/Debug/sc.build/Objects-normal/x86_64/systemic8.o
