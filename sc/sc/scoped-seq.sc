@@ -46,6 +46,7 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
+barrenland (%d0 %d0 %d0)
 solution (%d0 %d0 %d0)
 main (%d0 %d0 %d0)
 
@@ -64,13 +65,22 @@ bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 #chain bmark
 {
 //note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
-//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A)
-($L times $R) + ($L esc $R)
+//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A). Only $l gets escaped
+//, i think should do (11*13)+7 = 10010110 
+($L times $R) + +($L sum ?A) + ($L esc A)
+}
+#chain output
+{
+//so that stuff only gets printed once
+($L esc $R)
 }
 
 // set up the scopes
-//data3
-
+//barrenland this is where systems go to rest (and not be printed)
+#scope barrenland
+{
+solution
+}
 #scope solution
 {
 main
@@ -80,11 +90,11 @@ output
 {
 data1
 data2
-
+data3
 bmark
 times
 sum
-output
+//output
 }
 
 #systemic end
