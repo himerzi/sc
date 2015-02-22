@@ -1,3 +1,6 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/scoped-seq.sc
+
 #systemic start
 
 // define the functions
@@ -47,27 +50,23 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-barrenland (%d0 %d0 %d0)
-solution (%d0 %d0 %d0)
-main (%d0 %d0 %d0)
-chain-head (%d0 %d0 %d0)
-dummy-system (twelve %d0 three)
-
-data1 (num %d0 %d11)
-data2 (num %d0 %d13)
-//twelve attaches to sum schema
-data3 (twelve %d0 %d7)
-//has bitmark in its kernel...matches dummy system on teh right.
-esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [twelve %d0 three])
+barrenland (%d0 NOP(0,0) %d0)
+solution (%d0 NOP(0,0) %d0)
+main (%d0 NOP(0,0) %d0)
+chain (%d0 NOP(0,0) %d0)
+dummy (%d12 NOP(0,0) %d3)
+data1 (%d3 NOP(0,0) %d150)
+data2 (%d3 NOP(0,0) %d0)
+data3 (%d12 NOP(0,0) %d0)
+esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [twelve zero three])
 esc ([three zero dontcare] ESCAPE(0,0) [dontcare zero dontcare])
 sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
 times ([three zero dontcare] MULT(0,0) [three zero dontcare])
-output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//marks the number three on left schema
+output ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 bmark2 ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
-
+// set up any chains
 #chain bmark
 {
 //note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
@@ -77,38 +76,40 @@ bmark2 ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 //then a solution is escaped into barrenland where it rests and whithers.
 ($L times $R) + +($L sum ?A) + ($L esc A)
 }
+
 #chain output
 {
 //so that stuff only gets printed once
 ($L esc $R)
 }
 
+
 // set up the scopes
-//barrenland this is where systems go to rest (and not be printed)
 #scope barrenland
 {
-solution
+      solution
+      data1
 }
+
 #scope solution
 {
-main
-output
+      main
+      output
 }
+
 #scope main
 {
-data1
-data2
-data3
-
-times
-sum
-chain-head
+      chain
+      [2:3]data
+      sum
+      times
+      bmark
 }
+
 #scope chain-head
 {
-bmark
-dummy-system
-esc1
+      dummy
+      esc1
 }
 
 #systemic end
