@@ -1,6 +1,5 @@
 #systemic start
 
-//Computes (11*13)+7 = 10010110
 // define the functions
 #function NOP               %b00000000000000000000000000000000
 #function ADD               %b10000000000000000000000000000000
@@ -32,6 +31,7 @@
 
 // define some useful labels
 #label first                %b10101010000000000000000000000000
+#label bmarkid              %b00010100000000000000000000000000
 #label second               %b01001001000000000000000000000000
 #label num                  %b10000000000000000000000000000000
 #label zero                 %b00000000000000000000000000000000
@@ -47,38 +47,87 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-main (%d0 %d0 %d0)
+barrenland (%d0 %d0 %d0)
+solution (%d0 %d0 %d0)
+main-wrapper (%d0 %d0 %d0)
+operation0 (%d0 %d0 %d0)
+operation1 (%d0 %d0 %d0)
+chain-head0 (%d0 %d0 %d0)
+chain-head1 (%d0 %d0 %d0)
+[0:1]dummy-system (twelve %d0 three)
 
-data1 (num %d0 %d11)
-data2 (num %d0 %d13)
+[0:1]data1 (num %d0 %d11)
+[0:1]data2 (num %d0 %d13)
 //twelve attaches to sum schema
-data3 (twelve %d0 %d7)
+[0:1]data3 (twelve %d0 %d7)
 
-sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
-times ([three zero dontcare] MULT(0,0) [three zero dontcare])
+//has bitmark in its kernel...matches dummy system on teh right.
+esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [twelve %d0 three])
+esc ([three zero dontcare] ESCAPE(0,0) [dontcare zero dontcare])
+[0:1]sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
+[0:1]times ([three zero dontcare] MULT(0,0) [three zero dontcare])
 output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //marks the number three on left schema
-bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
+[0:1]bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
-#chain bmark
+
+//Chain array. [0:N]chainname . Each chain would be named and stored as chainameN.
+#chain [0:1]bmark
 {
 //note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
-//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A)
-($L times $R) +($L sum ?A) + ($L output A)
+//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A). Only $l gets escaped
+//, i think should do (11*13)+7 = 10010110
+//chain-head geats escaped into main where it operates, then a solution gets escaped into solution, where it is printed
+//then a solution is escaped into barrenland where it rests and whithers.
+($L times0 $R)  +($L sum0 ?A) + ($L esc A)
+}
+#chain output
+{
+//so that stuff only gets printed once
+($L esc $R)
 }
 
 // set up the scopes
-//data3
-
-#scope main
+//barrenland this is where systems go to rest (and not be printed)
+#scope barrenland
 {
-data1
-data2
-data3
-bmark
-times
-sum
+main-wrapper
+}
+#scope main-wrapper
+{
+operation0
+operation1
 output
 }
 
+#scope operation0
+{
+data10
+data20
+data30
+times0
+sum0
+chain-head0
+}
+#scope operation1
+{
+data11
+data21
+data31
+times0
+sum0
+chain-head1
+}
+#scope chain-head0
+{
+bmark0
+dummy-system0
+esc1
+}
+#scope chain-head1
+{
+bmark1
+dummy-system1
+esc1
+}
 #systemic end

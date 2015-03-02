@@ -1,6 +1,8 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/multiple-seq.sc
+
 #systemic start
 
-//Computes (11*13)+7 = 10010110
 // define the functions
 #function NOP               %b00000000000000000000000000000000
 #function ADD               %b10000000000000000000000000000000
@@ -32,6 +34,7 @@
 
 // define some useful labels
 #label first                %b10101010000000000000000000000000
+#label bmarkid              %b00010100000000000000000000000000
 #label second               %b01001001000000000000000000000000
 #label num                  %b10000000000000000000000000000000
 #label zero                 %b00000000000000000000000000000000
@@ -47,38 +50,88 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-main (%d0 %d0 %d0)
+barrenland (%d0 NOP(0,0) %d0)
+solution (%d0 NOP(0,0) %d0)
+main (%d0 NOP(0,0) %d0)
+[0:1]operation (%d0 NOP(0,0) %d0)
+chain (%d0 NOP(0,0) %d0)
+chain (%d0 NOP(0,0) %d0)
+dummy (%d12 NOP(0,0) %d3)
+dummy (%d12 NOP(0,0) %d3)
+data10 (%d3 NOP(0,0) %d150)
+data11 (%d3 NOP(0,0) %d0)
+data20 (%d3 NOP(0,0) %d0)
+data21 (%d3 NOP(0,0) %d150)
+[30:31]data (%d12 NOP(0,0) %d0)
+esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [twelve zero three])
+esc ([three zero dontcare] ESCAPE(0,0) [dontcare zero dontcare])
+[0:1]sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
+[0:1]times ([three zero dontcare] MULT(0,0) [three zero dontcare])
+output ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
+[0:1]bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
-data1 (num %d0 %d11)
-data2 (num %d0 %d13)
-//twelve attaches to sum schema
-data3 (twelve %d0 %d7)
-
-sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
-times ([three zero dontcare] MULT(0,0) [three zero dontcare])
-output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//marks the number three on left schema
-bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
-
-#chain bmark
+// set up any chains
+#chain [0:1]bmark
 {
 //note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
-//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A)
-($L times $R) +($L sum ?A) + ($L output A)
+//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A). Only $l gets escaped
+//, i think should do (11*13)+7 = 10010110
+//chain-head geats escaped into main where it operates, then a solution gets escaped into solution, where it is printed
+//then a solution is escaped into barrenland where it rests and whithers.
+($L times0 $R)  +($L sum0 ?A) + ($L esc A)
 }
 
-// set up the scopes
-//data3
-
-#scope main
+#chain output
 {
-data1
-data2
-data3
-bmark
-times
-sum
-output
+//so that stuff only gets printed once
+($L esc $R)
+}
+
+
+// set up the scopes
+#scope barrenland
+{
+      main
+}
+
+#scope main-wrapper
+{
+      [0:1]operation
+      data10
+      data21
+      output
+}
+
+#scope operation0
+{
+      chain
+      data20
+      data30
+      sum0
+      times0
+      bmark0
+}
+
+#scope operation1
+{
+      chain
+      data11
+      data31
+      sum0
+      times0
+      bmark1
+}
+
+#scope chain-head0
+{
+      dummy
+      esc1
+}
+
+#scope chain-head1
+{
+      dummy
+      esc1
 }
 
 #systemic end

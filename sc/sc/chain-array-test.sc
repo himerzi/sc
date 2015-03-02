@@ -58,13 +58,13 @@ sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
 times ([three zero dontcare] MULT(0,0) [three zero dontcare])
 output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //marks the number three on left schema
-bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
+[0:1]bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
-#chain bmark
+#chain [0:1]bmark
 {
 //note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
 //to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A)
-($L times $R) +($L sum ?A) + ($L output A)
+($L times $R) + ($L sum ?A) + ($L output A)
 }
 
 // set up the scopes
@@ -75,7 +75,7 @@ bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 data1
 data2
 data3
-bmark
+bmark0
 times
 sum
 output

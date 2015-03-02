@@ -1,3 +1,6 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/chain-array-test.sc
+
 #systemic start
 
 //Computes (11*13)+7 = 10010110
@@ -47,38 +50,32 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-main (%d0 %d0 %d0)
-
-data1 (num %d0 %d11)
-data2 (num %d0 %d13)
-//twelve attaches to sum schema
-data3 (twelve %d0 %d7)
-
+main (%d0 NOP(0,0) %d0)
+data1 (%d3 NOP(0,0) %d0)
+data2 (%d3 NOP(0,0) %d150)
+data3 (%d12 NOP(0,0) %d0)
 sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
 times ([three zero dontcare] MULT(0,0) [three zero dontcare])
-output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//marks the number three on left schema
-bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
+output ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
+[0:1]bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
-#chain bmark
+// set up any chains
+#chain [0:1]bmark
 {
 //note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
 //to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A)
-($L times $R) +($L sum ?A) + ($L output A)
+($L times $R) + ($L sum ?A) + ($L output A)
 }
 
-// set up the scopes
-//data3
 
+// set up the scopes
 #scope main
 {
-data1
-data2
-data3
-bmark
-times
-sum
-output
+      [1:3]data
+      sum
+      times
+      output
+      bmark0
 }
 
 #systemic end

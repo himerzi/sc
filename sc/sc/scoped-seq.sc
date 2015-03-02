@@ -65,7 +65,7 @@ times ([three zero dontcare] MULT(0,0) [three zero dontcare])
 output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //marks the number three on left schema
 bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
-bmark2 ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
+
 
 
 #chain bmark
