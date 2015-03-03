@@ -1,3 +1,6 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/multiple-seq.sc
+
 #systemic start
 
 // define the functions
@@ -47,38 +50,28 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-barrenland (%d0 %d0 %d0)
-solution (%d0 %d0 %d0)
-main-wrapper (%d0 %d0 %d0)
-operation0 (%d0 %d0 %d0)
-operation1 (%d0 %d0 %d0)
-chain-head0 (%d0 %d0 %d0)
-chain-head1 (%d0 %d0 %d0)
-[0:1]dummy-system (twelve %d0 three)
-
-//first set of data. for computing (11*13)+7 10010110
-data10 (num %d0 %d11)
-data20 (num %d0 %d13)
-//twelve attaches to sum schema
-data30 (twelve %d0 %d7)
-//second set of data. for computing (7*13)+11 1100110
-data11 (num %d0 %d7)
-data21 (num %d0 %d13)
-//11 attaches to sum schema
-data31 (twelve %d0 %d11)
-
-
-//has bitmark in its kernel...matches dummy system on teh right.
-esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [twelve %d0 three])
+barrenland (%d0 NOP(0,0) %d0)
+solution (%d0 NOP(0,0) %d0)
+main (%d0 NOP(0,0) %d0)
+[0:1]operation (%d0 NOP(0,0) %d0)
+chain (%d0 NOP(0,0) %d0)
+chain (%d0 NOP(0,0) %d0)
+dummy (%d12 NOP(0,0) %d3)
+dummy (%d12 NOP(0,0) %d3)
+data10 (%d3 NOP(0,0) %d150)
+data20 (%d3 NOP(0,0) %d0)
+data30 (%d12 NOP(0,0) %d0)
+data11 (%d3 NOP(0,0) %d0)
+data21 (%d3 NOP(0,0) %d102)
+data31 (%d12 NOP(0,0) %d0)
+esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [twelve zero three])
 esc ([three zero dontcare] ESCAPE(0,0) [dontcare zero dontcare])
 [0:1]sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
 [0:1]times ([three zero dontcare] MULT(0,0) [three zero dontcare])
-output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//marks the number three on left schema
+output ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 [0:1]bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
-
-//Chain array. [0:N]chainname . Each chain would be named and stored as chainameN.
+// set up any chains
 #chain [0:1]bmark
 {
 //note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
@@ -88,53 +81,58 @@ output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //then a solution is escaped into barrenland where it rests and whithers.
 ($L times0 $R)  +($L sum0 ?A) + ($L esc A)
 }
+
 #chain output
 {
 //so that stuff only gets printed once
 ($L esc $R)
 }
 
+
 // set up the scopes
-//barrenland this is where systems go to rest (and not be printed)
 #scope barrenland
 {
-main-wrapper
+      main
+      data10
+      data21
 }
+
 #scope main-wrapper
 {
-operation0
-operation1
-output
+      [0:1]operation
+      output
 }
 
 #scope operation0
 {
-data10
-data20
-data30
-times0
-sum0
-chain-head0
+      chain
+      data20
+      data30
+      sum0
+      times0
+      bmark0
 }
+
 #scope operation1
 {
-data11
-data21
-data31
-times0
-sum0
-chain-head1
+      chain
+      data11
+      data31
+      sum0
+      times0
+      bmark1
 }
+
 #scope chain-head0
 {
-bmark0
-dummy-system0
-esc1
+      dummy
+      esc1
 }
+
 #scope chain-head1
 {
-bmark1
-dummy-system1
-esc1
+      dummy
+      esc1
 }
+
 #systemic end
