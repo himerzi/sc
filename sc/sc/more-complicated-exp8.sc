@@ -1,3 +1,6 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/more-complicated-exp.sc
+
 #systemic start
 //this does nested operations
 
@@ -48,108 +51,97 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-barrenland (%d0 %d0 %d0)
-main-wrapper (%d0 %d0 %d0)
-operation0 (%d0 %d0 %d0)
-operation1 (%d0 %d0 %d0)
-operation2 (%d0 %d0 %d0)
-chain-head0 (%d0 %d0 %d0)
-chain-head1 (%d0 %d0 %d0)
-[0:1]dummy-system (sum-type %d0 three)
-
-//first set of data. for computing (11*13)+7 op0 = 10010110
-data10 (mult-type %d0 %d11)
-data20 (mult-type %d0 %d13)
-data30 (sum-type %d0 %d7)
-
-//second set of data. for computing (3**2) op1 = 1001
-data11 (mult-type %d0 %d3)
-data21 (mult-type %d0 %d3)
-
-
-
-// this esc is used to escape the bitmarkers which live in teh chain head scopes, out to the operations scope where they are
-// are used to initiate operations
-esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [sum-type %d0 three])
-//this escs are is to escape arithmetic in hte "operations" scopes" out into parent scope where the results of op0 and op1
-//are added together (op0) + (op1).
+barrenland (%d0 NOP(0,0) %d0)
+main (%d0 NOP(0,0) %d0)
+[0:2]operation (%d0 NOP(0,0) %d0)
+chain (%d0 NOP(0,0) %d0)
+chain (%d0 NOP(0,0) %d0)
+dummy (%d12 NOP(0,0) %d3)
+dummy (%d12 NOP(0,0) %d3)
+data10 (%d3 NOP(0,0) %d0)
+data20 (%d3 NOP(0,0) %d0)
+data30 (%d12 NOP(0,0) %d0)
+data11 (%d3 NOP(0,0) %d0)
+data21 (%d3 NOP(0,0) %d159)
+esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [sum-type zero three])
 esc ([three zero dontcare] ESCAPE(0,0) [dontcare zero dontcare])
-//need one sum0 for op0, and sum1 for op2, which is op0 + op1. note different schemas
 sum0 ([three zero dontcare] ADD(0,0) [sum-type zero dontcare])
 sum1 ([three zero dontcare] ADD(0,0) [three zero dontcare])
-//times is used in op1 3**2 times only accepts bitmarked things
 times ([three zero dontcare] MULT(0,0) [three zero dontcare])
-output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//marks the number three on left schema
+output ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 [0:1]bmark ([mult-type zero dontcare] BITMARK(0,0) [mult-type zero dontcare])
 
-
-
-//(11*13)+7 op0
+// set up any chains
 #chain bmark0
 {
 ($L times $R)  + ($L sum0 ?A) + ($L esc A)
 }
-//3**2 op1
+
 #chain bmark1
 {
 ($L times $R) + ($L esc $R)
 }
-//for summing op0 + op1 (this is op2)
+
 #chain sum1
 {
 ($L esc $R)
 }
+
 #chain output
 {
 //so that stuff only gets printed once
 ($L esc $R)
 }
 
+
 // set up the scopes
-//barrenland this is where systems go to rest (and not be printed)
 #scope barrenland
 {
-main-wrapper
+      main
+      data21
 }
+
 #scope main-wrapper
 {
-operation2
-//expected answer is 10011111 = 159
-output
+      operation2
+      output
 }
-#scope operation2
-{
-operation0
-operation1
-sum1 //has an esc chained to it
-}
+
 #scope operation0
 {
-data10
-data20
-data30
-times
-sum0
-chain-head0
+      chain
+      data20
+      data30
+      sum0
+      times
+      bmark0
 }
+
 #scope operation1
 {
-data11
-data21
-times
-chain-head1
+      chain
+      data11
+      times
+      bmark1
 }
+
+#scope operation2
+{
+      [0:1]operation
+      data10
+      sum1
+}
+
 #scope chain-head0
 {
-bmark0
-dummy-system0
-esc1
+      dummy
+      esc1
 }
+
 #scope chain-head1
 {
-bmark1
-dummy-system1
-esc1
+      dummy
+      esc1
 }
+
 #systemic end

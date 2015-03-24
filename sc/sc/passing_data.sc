@@ -1,6 +1,5 @@
 #systemic start
-//this does nested operations
-
+//Passing data. Based on Scoped seq.
 // define the functions
 #function NOP               %b00000000000000000000000000000000
 #function ADD               %b10000000000000000000000000000000
@@ -34,13 +33,13 @@
 #label first                %b10101010000000000000000000000000
 #label bmarkid              %b00010100000000000000000000000000
 #label second               %b01001001000000000000000000000000
-#label mult-type                  %b10000000000000000000000000000000
+#label num                  %b10000000000000000000000000000000
 #label zero                 %b00000000000000000000000000000000
 #label one                  %b10000000000000000000000000000000
 #label two                  %b01000000000000000000000000000000
 #label three                %b11000000000000000000000000000000
 #label four                 %b00100000000000000000000000000000
-#label sum-type               %b00110000000000000000000000000000
+#label twelve               %b00110000000000000000000000000000
 #label zerotofour           %b???00000000000000000000000000000
 #label dontcare             %b????????????????????????????????
 #label onetwoeight          %b???????1????????????????????????
@@ -49,56 +48,35 @@
 
 // and the program begins here:
 barrenland (%d0 %d0 %d0)
-main-wrapper (%d0 %d0 %d0)
-operation0 (%d0 %d0 %d0)
-operation1 (%d0 %d0 %d0)
-operation2 (%d0 %d0 %d0)
-chain-head0 (%d0 %d0 %d0)
-chain-head1 (%d0 %d0 %d0)
-[0:1]dummy-system (sum-type %d0 three)
+solution (%d0 %d0 %d0)
+main (%d0 %d0 %d0)
+chain-head (%d0 %d0 %d0)
+dummy-system (twelve %d0 three)
 
-//first set of data. for computing (11*13)+7 op0 = 10010110
-data10 (mult-type %d0 %d11)
-data20 (mult-type %d0 %d13)
-data30 (sum-type %d0 %d7)
-
-//second set of data. for computing (3**2) op1 = 1001
-data11 (mult-type %d0 %d3)
-data21 (mult-type %d0 %d3)
-
-
-
-// this esc is used to escape the bitmarkers which live in teh chain head scopes, out to the operations scope where they are
-// are used to initiate operations
-esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [sum-type %d0 three])
-//this escs are is to escape arithmetic in hte "operations" scopes" out into parent scope where the results of op0 and op1
-//are added together (op0) + (op1).
+data1 (num %d0 %d11)
+data2 (num %d0 %d13)
+//twelve attaches to sum schema
+data3 (twelve %d0 %d7)
+//has bitmark in its kernel...matches dummy system on teh right.
+esc1 ([dontcare bmarkid dontcare] ESCAPE(0,0) [twelve %d0 three])
 esc ([three zero dontcare] ESCAPE(0,0) [dontcare zero dontcare])
-//need one sum0 for op0, and sum1 for op2, which is op0 + op1. note different schemas
-sum0 ([three zero dontcare] ADD(0,0) [sum-type zero dontcare])
-sum1 ([three zero dontcare] ADD(0,0) [three zero dontcare])
-//times is used in op1 3**2 times only accepts bitmarked things
+sum ([three zero dontcare] ADD(0,0) [twelve zero dontcare])
 times ([three zero dontcare] MULT(0,0) [three zero dontcare])
 output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //marks the number three on left schema
-[0:1]bmark ([mult-type zero dontcare] BITMARK(0,0) [mult-type zero dontcare])
+bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
 
 
-//(11*13)+7 op0
-#chain bmark0
+#chain bmark
 {
-($L times $R)  + ($L sum0 ?A) + ($L esc A)
-}
-//3**2 op1
-#chain bmark1
-{
-($L times $R) + ($L esc $R)
-}
-//for summing op0 + op1 (this is op2)
-#chain sum1
-{
-($L esc $R)
+//note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
+//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A). Only $l gets escaped
+//, i think should do (11*13)+7 = 10010110
+//chain-head geats escaped into main where it operates, then a solution gets escaped into solution, where it is printed
+//then a solution is escaped into barrenland where it rests and whithers.
+($L times $R)  +($L sum ?A) + ($L esc A)
+//R should be trashed, ?A should be trashed. Need a way of marking shit that needs to be trashed.
 }
 #chain output
 {
@@ -110,46 +88,27 @@ output  ([three zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //barrenland this is where systems go to rest (and not be printed)
 #scope barrenland
 {
-main-wrapper
+solution
 }
-#scope main-wrapper
+#scope solution
 {
-operation2
-//expected answer is 10011111 = 159
+main
 output
 }
-#scope operation2
+#scope main
 {
-operation0
-operation1
-sum1 //has an esc chained to it
-}
-#scope operation0
-{
-data10
-data20
-data30
+data1 //1
+data2 //13
+data3 //7
 times
-sum0
-chain-head0
+sum
+chain-head
 }
-#scope operation1
+#scope chain-head
 {
-data11
-data21
-times
-chain-head1
-}
-#scope chain-head0
-{
-bmark0
-dummy-system0
+bmark
+dummy-system
 esc1
 }
-#scope chain-head1
-{
-bmark1
-dummy-system1
-esc1
-}
+
 #systemic end
