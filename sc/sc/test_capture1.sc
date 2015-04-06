@@ -1,3 +1,6 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/test_capture.sc
+
 #systemic start
 
 //Computes (11*13)+7 = 10010110
@@ -47,29 +50,23 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-main (%d0 %d0 %d0)
-
-
-
-data1 (num %d0 %d11)
-inner (%d0 %d0 %d0)
-
+main (%d0 NOP(0,0) %d0)
+data1 (%d1 NOP(0,0) %d11)
+inner (%d0 NOP(0,0) %d0)
 capt ([num zero dontcare] CAPTURE(0,0) [dontcare dontcare dontcare])
-output  ([num zero dontcare] PRINT(0,0) [dontcare dontcare dontcare])
 
+// set up any chains
 
 // set up the scopes
-
 #scope main
 {
-capt
-data1
-output
-inner
+      inner
+      capt
 }
+
 #scope inner
 {
-
+      data1
 }
 
 #systemic end

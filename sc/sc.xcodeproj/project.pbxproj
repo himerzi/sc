@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		6C0D77D41A27947A006D4A41 /* myex.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myex.sc; sourceTree = "<group>"; };
 		6C1B3ECF1A964AA900B7DF92 /* scoped-seq.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "scoped-seq.sc"; sourceTree = "<group>"; };
+		6C33B1341AD2B07A00D5502D /* passing_data_v1.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = passing_data_v1.sc; sourceTree = "<group>"; };
 		6C534D741AA4D02900014017 /* multiple-seq.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "multiple-seq.sc"; sourceTree = "<group>"; };
 		6C534D751AA4D9D400014017 /* chain-array-test.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "chain-array-test.sc"; sourceTree = "<group>"; };
 		6C7B6CA71AC0DCD400E93857 /* passing_data.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = passing_data.sc; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 				6C534D741AA4D02900014017 /* multiple-seq.sc */,
 				6C9FE45C1AADFEAF005E034B /* more-complicated-exp.sc */,
 				6C7B6CA71AC0DCD400E93857 /* passing_data.sc */,
+				6C33B1341AD2B07A00D5502D /* passing_data_v1.sc */,
 				6C8FC9B21AC1BD1100AFE23B /* test_capture.sc */,
 				D554E12417DF3EDE0056FC43 /* sc_functions.c */,
 				D554E12517DF3EDE0056FC43 /* sc_functions.h */,
