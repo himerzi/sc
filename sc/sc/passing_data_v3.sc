@@ -1,5 +1,4 @@
 #systemic start
-//Passing data. Based on Scoped seq.
 // define the functions
 #function NOP               %b00000000000000000000000000000000
 #function ADD               %b10000000000000000000000000000000
@@ -28,12 +27,14 @@
 #function BITMARK           %b00010100000000000000000000000000
 #function INCREMENTOR       %b10010100000000000000000000000000
 #function MULT_V2           %b01010100000000000000000000000000
-
+#function BITMARKP1         %d43
+//#function RECORDER          %d43
+//#function RESETTER          %d44
+//#function ESCAPE_BOTH       %d45
 
 
 // define some useful labels
 #label first                %b10101010000000000000000000000000
-#label bmarkid              %b00010100000000000000000000000000
 #label second               %b01001001000000000000000000000000
 #label num                  %b10000000000000000000000000000000
 #label zero                 %b00000000000000000000000000000000
@@ -42,7 +43,6 @@
 #label three                %b11000000000000000000000000000000
 #label four                 %b00100000000000000000000000000000
 #label twelve               %b00110000000000000000000000000000
-#label garbage              %b?0000000000000000000000000000000
 #label bin_label            %b11010000000000000000000000000000
 
 #label zerotofour           %b???00000000000000000000000000000
@@ -52,53 +52,80 @@
 #label notone               %b0???????????????????????????????
 
 // and the program begins here:
-solution (%d0 %d0 %d0)
+//0
 main (%d0 %d0 %d0)
-//where the rubbish goes
-data-center (bin_label %d0 %d0)
-
+//where the data gets recorded & recycled
+//1
+data_center (bin_label %d0 %d0)
+//2
 data1_0 (num %d0 %d2)
+//3
 data1_1 (num %d0 %d2)
+//4
+fitness (%d19 %d0 %d0)
 
-//has bitmark in its kernel...matches dummy system on teh right.
-//used to collect data1&2
+//Main scope
+//5
 capt_ans ([%d17 zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
+//6
 capt ([three zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
-//esc ([three zero dontcare] ESCAPE(0,0) [dontcare zero dontcare])
-times ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
-output  ([%d17 zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-incrementor ([three zero dontcare] INCREMENTOR(0,0) [dontcare zero dontcare])
+//7
+esc ([num zero dontcare] ESCAPE_BOTH(0,0) [num zero dontcare])
+//8
+//times ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
+//9
+incrementor ([num zero dontcare] INCREMENTOR(0,0) [num zero dontcare])
 //marks the number three on left schema
+//10
 bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
+//data-center scope
+//11
+resetter ([%d18 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
+//12
+recorder ([%d18 zero dontcare] RECORDER(0,0) [%d19 zero dontcare])
+//13
+output ([%d3 zero dontcare] PRINT(0,0) [%d3 zero dontcare])
+//14
+//dmark ([%d17 zero dontcare] BITMARKP1(0,0) [three zero dontcare])
 
 
-#chain output
+#chain times
 {
-($R incrementor $L) + ($L output $R)
-}
-#chain bmark
-{
-($L times $R) + ($L capt_ans ?A) + ($R capt A)
+($L capt_ans ?A) //+ ($R capt A)
 }
 
+//#chain bmark
+//{
+//($L times $R) + ($L capt_ans ?A) + ($R capt A)
+//}
+
+//#chain dmark
+//{
+//($L output $R)
+//}
+//+ ($L recorder ?A) + ($L resetter $R)  + ($L incrementor $R) + ($L esc $R)
 // set up the scopes
 
-#scope solution
-{
-main
-}
 #scope main
 {
 capt
-data-center
+capt_ans
+data_center
 data1_0
 data1_1
-times
+//times
 bmark
 }
-#scope data-center
+
+#scope data_center
 {
 output
+recorder
+resetter
+incrementor
+fitness
+esc
+//dmark
 }
 
 #systemic end

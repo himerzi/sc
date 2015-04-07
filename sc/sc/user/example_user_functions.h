@@ -21,7 +21,12 @@
                                 addfunction("XCHAINS");\
                                 addfunction("BITMARK");\
                                 addfunction("INCREMENTOR");\
-                                addfunction("MULT_V2");
+                                addfunction("MULT_V2");\
+                                addfunction("BITMARKP1");\
+                                addfunction("RECORDER");
+                                //addfunction("RESETTER");\
+                                //addfunction("ESCAPE_BOTH");
+                     
 
 
 // 2. user-defined function codes (numbers less than 31 are reserved)
@@ -37,9 +42,13 @@
 #define BITMARKfn               40
 #define INCREMENTORfn           41
 #define MULT_V2fn               42
+#define BITMARKP1fn             43
+#define RECORDERfn              44
+#define RESETTERfn              45
+#define ESCAPE_BOTHfn           46
 
 // the total number of user-defined functions above
-#define NUMUSERFUNCTIONS        11
+#define NUMUSERFUNCTIONS        15
 
 // 3. calling the user-defined transformation functions when corresponding function code has been recognised in the .scp code
 #define USERTRANSFORMFUNCTIONS \
@@ -53,7 +62,11 @@
         case XCHAINSfn:         if (_matchedok(m1,m2,t1,t2,not)) { ret = XChains(s[i1].schema2,s[i2].schema2,chainnum,chain); PRINTFF("\n>{XChains}<"); } break;\
         case BITMARKfn:         if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{Bitmark}<"); } break;\
         case INCREMENTORfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Incrementor(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{Incrementor}<"); } break;\
-        case MULT_V2fn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Mult_v2(s[i1].schema1,s[i1].schema2, s[i2].schema2); PRINTFF("\n>{MULT_V2}<"); } break;\
+        case MULT_V2fn:         if (_matchedok(m1,m2,t1,t2,not)) { ret = Mult_v2(s[i1].schema1, s[i1].schema2, s[i2].schema2); PRINTFF("\n>{MULT_V2}<"); } break;\
+        case BITMARKP1fn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmarkp1(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{BITMARKP1}<"); } break;\
+        case RECORDERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Recorder(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{RECORDER}<"); } break;\
+        case RESETTERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Resetter(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{RESETTER}<"); } break;\
+        case ESCAPE_BOTHfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Escape_both(s,i1,i2,scppos,scopetable); PRINTFF("\n>{ESC_BOTH}<"); } break;
 
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
@@ -67,11 +80,14 @@ int XChains(unsigned char *s1, unsigned char *s2, int chainnum, chainlink **chai
 int Bitmark(unsigned char *s1, unsigned char *s2);
 int Incrementor(unsigned char *s1, unsigned char *s2);
 int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s2);
-
-//////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
+int Bitmarkp1(unsigned char *s11, unsigned char *s21);
+int Recorder(unsigned char *s12, unsigned char *s22);
+int Resetter(unsigned char *s11, unsigned char *s21);
+int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable);
+////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:
- zero(unsigned char *s1, unsigned char *s2);
+int zero(unsigned char *s1, unsigned char *s2);
 __inline BOOL isNOP(unsigned char *c);
 BOOL iszero(unsigned char *s1, unsigned char *s2);
 BOOL isequal(unsigned char *s1, unsigned char *s2);
