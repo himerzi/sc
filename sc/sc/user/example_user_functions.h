@@ -19,7 +19,9 @@
                                 addfunction("ADDCHAINLINK");\
                                 addfunction("REMOVECHAINLINK");\
                                 addfunction("XCHAINS");\
-                                addfunction("BITMARK");
+                                addfunction("BITMARK");\
+                                addfunction("INCREMENTOR");\
+                                addfunction("MULT_V2");
 
 
 // 2. user-defined function codes (numbers less than 31 are reserved)
@@ -33,9 +35,11 @@
 #define REMOVECHAINLINKfn       38
 #define XCHAINSfn               39
 #define BITMARKfn               40
+#define INCREMENTORfn           41
+#define MULT_V2fn               42
 
 // the total number of user-defined functions above
-#define NUMUSERFUNCTIONS        9
+#define NUMUSERFUNCTIONS        11
 
 // 3. calling the user-defined transformation functions when corresponding function code has been recognised in the .scp code
 #define USERTRANSFORMFUNCTIONS \
@@ -48,6 +52,8 @@
         case REMOVECHAINLINKfn: if (_matchedok(m1,m2,t1,t2,not)) { ret = RemoveChainLink(s[i1].schema2,s[i2].schema2,chainnum,chain); PRINTFF("\n>{RemoveChainLink}<"); } break;\
         case XCHAINSfn:         if (_matchedok(m1,m2,t1,t2,not)) { ret = XChains(s[i1].schema2,s[i2].schema2,chainnum,chain); PRINTFF("\n>{XChains}<"); } break;\
         case BITMARKfn:         if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{Bitmark}<"); } break;\
+        case INCREMENTORfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Incrementor(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{Incrementor}<"); } break;\
+        case MULT_V2fn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Mult_v2(s[i1].schema1,s[i1].schema2, s[i2].schema2); PRINTFF("\n>{MULT_V2}<"); } break;\
 
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
@@ -59,11 +65,13 @@ int AddChainLink(unsigned char *s1, unsigned char *s2, int chainnum, chainlink *
 int RemoveChainLink(unsigned char *s1, unsigned char *s2, int chainnum, chainlink **chain);
 int XChains(unsigned char *s1, unsigned char *s2, int chainnum, chainlink **chain);
 int Bitmark(unsigned char *s1, unsigned char *s2);
+int Incrementor(unsigned char *s1, unsigned char *s2);
+int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s2);
 
 //////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:
-int zero(unsigned char *s1, unsigned char *s2);
+ zero(unsigned char *s1, unsigned char *s2);
 __inline BOOL isNOP(unsigned char *c);
 BOOL iszero(unsigned char *s1, unsigned char *s2);
 BOOL isequal(unsigned char *s1, unsigned char *s2);

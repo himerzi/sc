@@ -55,7 +55,7 @@
 barrenland (%d0 %d0 %d0)
 solution (%d0 %d0 %d0)
 main (%d0 %d0 %d0)
-chain-head (%d0 %d0 %d0)
+data-sys (%d0 %d0 %d0)
 //where the rubbish goes
 bin (bin_label %d0 %d0)
 dummy-system (twelve %d0 three)
@@ -82,13 +82,7 @@ bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
 
 #chain bmark
 {
-//note that sum here doesn't use $R, MULT sets $R to 1 after operating. So we need to fish out a new system from the scope
-//to add to the result of MULT (stored in $L), this new system is ?A. + ($L sum ?A) + ($L output A). Only $l gets escaped
-//, i think should do (11*13)+7 = 10010110
-//chain-head geats escaped into main where it operates, then a solution gets escaped into solution, where it is printed
-//then a solution is escaped into barrenland where it rests and whithers.
 ($L times $R)  +($L sum ?A) + ($L esc A)
-
 }
 #chain output
 {
@@ -117,9 +111,9 @@ capt2
 bin
 times
 sum
-chain-head
+data-sys
 }
-#scope chain-head
+#scope data-sys
 {
 bmark
 dummy-system

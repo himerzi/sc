@@ -118,6 +118,35 @@ int Bitmark(unsigned char *s1, unsigned char *s2)
     return 0;
 }
 
+int Incrementor(unsigned char *s1, unsigned char *s2)
+// Reads the value of s12 and increments it by 1, copies it to s22
+{
+    int a;
+    //read the value of s12
+    schematoi(s1,schemasize,&a);
+
+    ++a;
+    itoschema(a, s1);
+    itoschema(a, s2);
+
+    return 0;
+}
+
+int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s2)
+// multiplies binary values s1 * s2, placing results in s1 and, differently to normal mult, preserves original value of s22; under/overflow is ignored, other characters are ignored. Marks s11 with a special marking 
+{    int a, b;
+    
+    // do it the lazy way
+    schematoi(s12,schemasize,&a);//取变量地址
+    schematoi(s2,schemasize,&b);
+    //mark it with a 17
+    itoschema(17, s11);
+    //store the answer
+    itoschema(a*b,s12);
+    
+    return 0;
+}
+
 
 /// finally any general utility functions can be placed below:
 
