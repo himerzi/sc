@@ -125,9 +125,9 @@ int Bitmarkp1(unsigned char *s11, unsigned char *s21)
     //read the value of s11 and s21
     schematoi(s11,schemasize,&a);
     schematoi(s21,schemasize,&b);
-    printf("a b pre: %d %d\n", a, b);
+    //printf("a b pre: %d %d\n", a, b);
     ++a;++b;
-    printf("a b post: %d %d\n", a, b);
+    //printf("a b post: %d %d\n", a, b);
     itoschema(a, s11);
     itoschema(b, s21);
 

@@ -1,3 +1,6 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/passing_data_v3.sc
+
 #systemic start
 // define the functions
 #function NOP               %b00000000000000000000000000000000
@@ -53,44 +56,24 @@
 
 // and the program begins here:
 //0
-main (%d0 %d0 %d0)
-//where the data gets recorded & recycled
-//1
-data_center (bin_label %d0 %d0)
-//2
-data1_0 (num %d0 %d0)
-//3
-data1_1 (num %d0 %d0)
-//4
-fitness (%d19 %d0 %d0)
-
-//Main scope
-//5
-capt_ans ([%d20 zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
-//6
+main (%d0 NOP(0,0) %d0)
+data_center (%d11 NOP(0,0) %d0)
+data1 (%d20 NOP(0,0) %d144)
+data1 (%d3 NOP(0,0) %d12)
+fitness (%d19 NOP(0,0) %d506)
+capt_ans ([dontcare zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
 capt ([three zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
-//7
-esc ([num zero dontcare] ESCAPE_BOTH(0,0) [num zero dontcare])
-//8
+esc ([num zero dontcare] (0,0) [num zero dontcare])
 times ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
-//9
 incrementor ([num zero dontcare] INCREMENTOR(0,0) [num zero dontcare])
-//marks the number three on left schema
-//10
 bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
-//data-center scope
-output ([%d21 zero dontcare] PRINT(0,0) [%d4 zero dontcare])
+output ([dontcare zero dontcare] PRINT(0,0) [four zero dontcare])
 tst_output ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//14
-data_mark ([%d20 zero dontcare] BITMARKP1(0,0) [three zero dontcare])
-rec ([%d21 zero dontcare] RECORDER(0,0) [%d19 zero dontcare])
-res ([%d21 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
+data_mark ([dontcare zero dontcare] BITMARKP1(0,0) [three zero dontcare])
+rec ([dontcare zero dontcare] RECORDER(0,0) [dontcare zero dontcare])
+res ([dontcare zero dontcare] (0,0) [four zero dontcare])
 
-//#chain times
-//{
-//($L capt_ans ?A)
-//}
-
+// set up any chains
 #chain bmark
 {
 ($L times $R) + ($L capt_ans ?A) + ($R capt A)
@@ -100,29 +83,24 @@ res ([%d21 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
 {
 ($L output $R) + ($L rec ?A) + ($L tst_output A) + ($L res $R) + ($L tst_output $R) + ($L incrementor $R) + ($L tst_output $R) + ($L esc $R)
 }
-// )//+ ($L recorder ?A) + ($L resetter $R)  + ($L incrementor $R) + ($L esc $R)
-// set up the scopes
 
+
+// set up the scopes
 #scope main
 {
-capt
-capt_ans
-data_center
-data1_0
-data1_1
-times
-bmark
+      data_center
+      capt_ans
+      capt
+      times
+      bmark
 }
 
 #scope data_center
 {
-//output
-//recorder
-//resetter
-//incrementor
-fitness
-//esc
-data_mark
+      data1
+      data1
+      fitness
+      data_mark
 }
 
 #systemic end

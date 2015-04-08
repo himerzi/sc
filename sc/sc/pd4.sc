@@ -58,9 +58,9 @@ main (%d0 %d0 %d0)
 //1
 data_center (bin_label %d0 %d0)
 //2
-data1_0 (num %d0 %d2)
+data1_0 (num %d0 %d0)
 //3
-data1_1 (num %d0 %d2)
+data1_1 (num %d0 %d0)
 //4
 fitness (%d19 %d0 %d0)
 
