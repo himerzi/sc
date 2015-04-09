@@ -26,7 +26,9 @@
                                 addfunction("RECORDER");\
                                 addfunction("RESETTER");\
                                 addfunction("ESCAPE_BOTH");\
-                                addfunction("TAG_FITNESS");
+                                addfunction("TAG_FITNESS");\
+                                addfunction("TAG_CHAIN");\
+                                addfunction("BITMARK2");
                      
 
 
@@ -48,9 +50,12 @@
 #define RESETTERfn              45
 #define ESCAPE_BOTHfn           46
 #define TAG_FITNESSfn           47
+#define TAG_CHAINfn             48
+#define BITMARK2fn              49
+
 
 // the total number of user-defined functions above
-#define NUMUSERFUNCTIONS        16
+#define NUMUSERFUNCTIONS        18
 
 // 3. calling the user-defined transformation functions when corresponding function code has been recognised in the .scp code
 #define USERTRANSFORMFUNCTIONS \
@@ -69,7 +74,9 @@
         case RECORDERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Recorder(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{RECORDER}<"); } break;\
         case RESETTERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Resetter(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{RESETTER}<"); } break;\
         case ESCAPE_BOTHfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Escape_both(s,i1,i2,scppos,scopetable); PRINTFF("\n>{ESC_BOTH}<"); } break;\
-        case TAG_FITNESSfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_fitness(s,s[i1].schema2,scppos); PRINTFF("\nTAG_FITNESS"); } break;
+        case TAG_FITNESSfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_fitness(s,s[i1].schema2,scppos,scopetable); PRINTFF("\nTAG_FITNESS"); } break;\
+        case TAG_CHAINfn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_chain(s,i1,scppos,scopetable, chain); PRINTFF("\n TAG_CHAIN"); } break;\
+        case BITMARK2fn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark2(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK2"); } break;
 
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
@@ -81,13 +88,16 @@ int AddChainLink(unsigned char *s1, unsigned char *s2, int chainnum, chainlink *
 int RemoveChainLink(unsigned char *s1, unsigned char *s2, int chainnum, chainlink **chain);
 int XChains(unsigned char *s1, unsigned char *s2, int chainnum, chainlink **chain);
 int Bitmark(unsigned char *s1, unsigned char *s2);
+
 int Incrementor(unsigned char *s1, unsigned char *s2);
 int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s2);
 int Bitmarkp1(unsigned char *s11, unsigned char *s21);
 int Recorder(unsigned char *s12, unsigned char *s22);
 int Resetter(unsigned char *s11, unsigned char *s21);
 int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable);
-int Tag_fitness(systemic *s, unsigned char *s12, int parent);
+int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable);
+int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **chain);
+int Bitmark2(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:

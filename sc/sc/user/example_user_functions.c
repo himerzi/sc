@@ -104,6 +104,36 @@ int XChains(unsigned char *s1, unsigned char *s2, int chainnum, chainlink **chai
     return 0;
 }
 
+int Bitmark2(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context)
+// Adds a marker to  S11
+{
+    unsigned char *s1 = s[i1].schema1;
+    unsigned char *s2 = s[i2].schema1;
+    // transforms positive num into binary with length l
+    // and places it in schema[] starting at bit s
+    //(int num, int s, int l, unsigned char *schema)
+    
+    itoschemapart(3, 0, 2, s1);
+    itoschemapart(3, 0, 2, s2);
+ 
+    
+    
+    
+    if (s[context].ischained == NOTCHAINED)
+    {
+        printf("ERROR : This should be the head of a chain, but ischained == NOTCHAINED");
+    }
+    else
+    {
+        int chnum = s[context].ischained;
+        itoschema(chnum, s[parent].schema2);
+        // check that the first link matches the system we just executed
+        if (chain[chnum][0].systemnum != context) { printf("\nError: Chain for system not found. Chain broken.//"); }
+    }
+    
+    return 0;
+}
+
 int Bitmark(unsigned char *s1, unsigned char *s2)
 // Adds a marker to  S11
 {
@@ -202,17 +232,49 @@ int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable)
     return 0;
 }
 
-int Tag_fitness(systemic *s, unsigned char *s12, int parent)
+int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable)
+//Places the fitness value on to the main systems left schema
 //s12 is the fitness value
 {
     //todo implement this in practice. do another one to encode chain on right schema
-    int fitness;
+    int fitness, n;
     schematoi(s12,schemasize,&fitness);
+    
+    for (n = 0; n < numsystems; n++)
+        if (scopetable[n][parent] > 0)
+        {
+            itoschema(fitness, s[n].schema1);
+            break;
+        }
     //schema one of main stores the fitness value for this candidate solution.
-    itoschema(fitness, s[parent].schema1);
     return 0;
 }
-/// finally any general utility functions can be placed below:
+
+
+int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **chain)
+/// Places the head of the chain on to the main system's right schema
+{
+    printf("TAGS");
+ 
+    if (s[i1].ischained == NOTCHAINED)
+    {
+        printf("ERROR : This should be the head of a chain, but ischained == NOTCHAINED");
+    }
+    else
+    {
+        int n, chnum = s[i1].ischained;
+        for (n = 0; n < numsystems; n++)
+            if (scopetable[n][parent] > 0)
+            {
+                itoschema(chnum, s[n].schema2);
+                // check that the first link matches the system we just executed
+                if (chain[chnum][0].systemnum != i1) { printf("\nError: Chain for system not found. Chain broken.//"); break; }
+
+                break;
+            }
+    }
+    return 0;
+}
 
 void itofunctionpart(int num, int s, int l, unsigned char *function)
 // transforms positive num into binary with length l

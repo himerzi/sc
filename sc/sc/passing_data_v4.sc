@@ -31,6 +31,9 @@
 #function RECORDER          %d44
 #function RESETTER          %d45
 #function ESCAPE_BOTH       %d46
+#function TAG_FITNESS       %d47
+#function TAG_CHAIN         %d48
+#function BITMARK2          %d49
 
 
 // define some useful labels
@@ -77,26 +80,41 @@ times ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
 incrementor ([num zero dontcare] INCREMENTOR(0,0) [num zero dontcare])
 //marks the number three on left schema
 //10
-bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
+bmark ([num zero dontcare] BITMARK2(0,0) [num zero dontcare])
 //data-center scope
 //these two are just used for debugging
 output ([%d21 zero dontcare] PRINT(0,0) [%d4 zero dontcare])
 tst_output ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //14
 data_mark ([%d20 zero dontcare] BITMARKP1(0,0) [three zero dontcare])
+//15
 rec ([%d21 zero dontcare] RECORDER(0,0) [%d19 zero dontcare])
+//16
 res ([%d21 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
-
-#chain bmark
-{
-($L times $R) + ($L capt_ans ?A) + ($R capt A)
-}
+//17
+tagf ([%d19 zero dontcare] TAG_FITNESS(0,0) [dontcare dontcare dontcare])
+//18
+tagc ([dontcare bitmark dontcare] TAG_CHAIN(0,0) [dontcare dontcare dontcare])
+universe (%d0 %d0 %d0)
+//read_main ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
+//blah (%d0 %d0 %d0)
 
 #chain data_mark
 {
 ($L output $R) + ($L rec ?A) + ($L tst_output A) + ($L res $R) + ($L tst_output $R) + ($L incrementor $R) + ($L tst_output $R) + ($L esc $R)
 }
 
+#chain bmark
+{
+($L times $R) + ($L capt_ans ?A) + ($R capt A)
+}
+
+#scope universe
+{
+main
+
+//read_main
+}
 #scope main
 {
 capt
@@ -106,6 +124,7 @@ data1_0
 data1_1
 times
 bmark
+
 }
 
 #scope data_center

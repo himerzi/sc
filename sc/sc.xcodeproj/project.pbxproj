@@ -96,6 +96,7 @@
 				6C534D741AA4D02900014017 /* multiple-seq.sc */,
 				6C9FE45C1AADFEAF005E034B /* more-complicated-exp.sc */,
 				6C9A591A1AD447C4000BA070 /* pd4.sc */,
+				6C9A591B1AD56262000BA070 /* chain_play.sc */,
 				6C9A591C1AD68118000BA070 /* passing_data_v4.sc */,
 				6C33B1351AD3E76100D5502D /* passing_data_v3.sc */,
 				6C7B6CA71AC0DCD400E93857 /* passing_data_v2.sc */,
@@ -111,7 +112,6 @@
 				D554E12A17DF3F4B0056FC43 /* timer.h */,
 				D554E13117E0C0100056FC43 /* example_user_functions.c */,
 				D554E13217E0C0100056FC43 /* example_user_functions.h */,
-				6C9A591B1AD56262000BA070 /* chain_play.sc */,
 			);
 			path = sc;
 			sourceTree = "<group>";
