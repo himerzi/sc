@@ -202,6 +202,16 @@ int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable)
     return 0;
 }
 
+int Tag_fitness(systemic *s, unsigned char *s12, int parent)
+//s12 is the fitness value
+{
+    //todo implement this in practice. do another one to encode chain on right schema
+    int fitness;
+    schematoi(s12,schemasize,&fitness);
+    //schema one of main stores the fitness value for this candidate solution.
+    itoschema(fitness, s[parent].schema1);
+    return 0;
+}
 /// finally any general utility functions can be placed below:
 
 void itofunctionpart(int num, int s, int l, unsigned char *function)

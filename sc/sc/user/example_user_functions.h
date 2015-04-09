@@ -23,9 +23,10 @@
                                 addfunction("INCREMENTOR");\
                                 addfunction("MULT_V2");\
                                 addfunction("BITMARKP1");\
-                                addfunction("RECORDER");
-                                //addfunction("RESETTER");\
-                                //addfunction("ESCAPE_BOTH");
+                                addfunction("RECORDER");\
+                                addfunction("RESETTER");\
+                                addfunction("ESCAPE_BOTH");\
+                                addfunction("TAG_FITNESS");
                      
 
 
@@ -46,9 +47,10 @@
 #define RECORDERfn              44
 #define RESETTERfn              45
 #define ESCAPE_BOTHfn           46
+#define TAG_FITNESSfn           47
 
 // the total number of user-defined functions above
-#define NUMUSERFUNCTIONS        15
+#define NUMUSERFUNCTIONS        16
 
 // 3. calling the user-defined transformation functions when corresponding function code has been recognised in the .scp code
 #define USERTRANSFORMFUNCTIONS \
@@ -66,7 +68,8 @@
         case BITMARKP1fn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmarkp1(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{BITMARKP1}<"); } break;\
         case RECORDERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Recorder(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{RECORDER}<"); } break;\
         case RESETTERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Resetter(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{RESETTER}<"); } break;\
-        case ESCAPE_BOTHfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Escape_both(s,i1,i2,scppos,scopetable); PRINTFF("\n>{ESC_BOTH}<"); } break;
+        case ESCAPE_BOTHfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Escape_both(s,i1,i2,scppos,scopetable); PRINTFF("\n>{ESC_BOTH}<"); } break;\
+        case TAG_FITNESSfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_fitness(s,s[i1].schema2,scppos); PRINTFF("\nTAG_FITNESS"); } break;
 
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
@@ -84,6 +87,7 @@ int Bitmarkp1(unsigned char *s11, unsigned char *s21);
 int Recorder(unsigned char *s12, unsigned char *s22);
 int Resetter(unsigned char *s11, unsigned char *s21);
 int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable);
+int Tag_fitness(systemic *s, unsigned char *s12, int parent);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:
