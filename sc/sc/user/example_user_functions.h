@@ -70,7 +70,7 @@
         case BITMARKfn:         if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{Bitmark}<"); } break;\
         case INCREMENTORfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Incrementor(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{Incrementor}<"); } break;\
         case MULT_V2fn:         if (_matchedok(m1,m2,t1,t2,not)) { ret = Mult_v2(s[i1].schema1, s[i1].schema2, s[i2].schema2); PRINTFF("\n>{MULT_V2}<"); } break;\
-        case BITMARKP1fn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmarkp1(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{BITMARKP1}<"); } break;\
+        case BITMARKP1fn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmarkp1(s[i1].schema1, s[i2].schema1, s[i2].schema2); PRINTFF("\n>{BITMARKP1}<"); } break;\
         case RECORDERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Recorder(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{RECORDER}<"); } break;\
         case RESETTERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Resetter(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{RESETTER}<"); } break;\
         case ESCAPE_BOTHfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Escape_both(s,i1,i2,scppos,scopetable); PRINTFF("\n>{ESC_BOTH}<"); } break;\
@@ -91,7 +91,7 @@ int Bitmark(unsigned char *s1, unsigned char *s2);
 
 int Incrementor(unsigned char *s1, unsigned char *s2);
 int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s2);
-int Bitmarkp1(unsigned char *s11, unsigned char *s21);
+int Bitmarkp1(unsigned char *s11, unsigned char *s21, unsigned char *s22);
 int Recorder(unsigned char *s12, unsigned char *s22);
 int Resetter(unsigned char *s11, unsigned char *s21);
 int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable);

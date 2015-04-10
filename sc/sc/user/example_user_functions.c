@@ -118,7 +118,7 @@ int Bitmark2(systemic *s, int i1, int i2, int parent, int **scopetable, chainlin
  
     
     
-    
+    //TODO, ideally this should only run once for a given solution (because we only need to tag its chain once, I believe the chain id shouldn't change for a solution)
     if (s[context].ischained == NOTCHAINED)
     {
         printf("ERROR : This should be the head of a chain, but ischained == NOTCHAINED");
@@ -148,10 +148,20 @@ int Bitmark(unsigned char *s1, unsigned char *s2)
     return 0;
 }
 
-int Bitmarkp1(unsigned char *s11, unsigned char *s21)
+int Bitmarkp1(unsigned char *s11, unsigned char *s21, unsigned char *s22)
 // Increases marker values of s11 and s21 by 1
+//also checks if s22 (which is the current value of x) is equal to 10, in which case its time to break out of the chain, as this means
+//the fitness has now been measured.
 {
-    int a, b;
+    int a, b, x;
+    
+    //read the value of the current x independent variable
+    schematoi(s22,schemasize,&x);
+    //if x is now 10, then were done with the cycle of evaluating fitness
+    if (x > 10) {
+        return 1;
+    }
+    
     //read the value of s11 and s21
     schematoi(s11,schemasize,&a);
     schematoi(s21,schemasize,&b);
@@ -160,6 +170,8 @@ int Bitmarkp1(unsigned char *s11, unsigned char *s21)
     //printf("a b post: %d %d\n", a, b);
     itoschema(a, s11);
     itoschema(b, s21);
+    
+    
 
     return 0;
 }
