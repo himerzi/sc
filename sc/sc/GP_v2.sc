@@ -35,6 +35,7 @@
 #function TAG_CHAIN         %d48
 #function BITMARK2          %d49
 #function BITMARK_INIT      %d50
+#function MARK_ANSWER       %d55
 
 
 // define some useful labels
@@ -105,6 +106,7 @@ res ([%d21 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
 tagf ([%d19 zero dontcare] TAG_FITNESS(0,0) [dontcare dontcare dontcare])
 //18
 tagc ([dontcare bitmk dontcare] TAG_CHAIN(0,0) [dontcare dontcare dontcare])
+mark_ans ([three zero dontcare] MARK_ANSWER(0,0) [dontcare dontcare dontcare])
 universe (%d0 %d0 %d0)
 //read_main ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //blah (%d0 %d0 %d0)
@@ -118,7 +120,7 @@ universe (%d0 %d0 %d0)
 
 #chain bmark
 {
-($L hollow0 $R) + ($L hollow1 $R) + ($L capt_ans ?A) + ($R capt A)
+($L hollow0 $R) + ($L hollow1 $R) +  ($L mark_ans $R) + ($L capt_ans ?A) + ($R capt A)
 }
 
 #scope universe

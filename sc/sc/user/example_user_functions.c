@@ -249,7 +249,7 @@ int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22)
     schematoi(s12,schemasize,&a);//取变量地址
     schematoi(s22,schemasize,&b);
     //mark it with a 20
-    itoschema(20, s11);
+    //itoschema(20, s11);
     //store the answer
     itoschema(a*b,s12);
     
@@ -388,6 +388,14 @@ int Add3(unsigned char *s11,unsigned char *s12)
     
     return 0;
 }
+
+int Mark_answer(unsigned char *s11)
+//mark s11 with 20 to denote an answer system
+{
+    itoschema(20, s11);
+    return 0;
+}
+
 void itofunctionpart(int num, int s, int l, unsigned char *function)
 // transforms positive num into binary with length l
 // and places it in function[] starting at bit s

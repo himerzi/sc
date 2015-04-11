@@ -32,7 +32,8 @@
                                 addfunction("BITMARK_INIT");\
                                 addfunction("ADD1");\
                                 addfunction("ADD2");\
-                                addfunction("ADD3");
+                                addfunction("ADD3");\
+                                addfunction("MARK_ANSWER");
                      
 
 
@@ -61,10 +62,11 @@
 #define ADD1fn                  52
 #define ADD2fn                  53
 #define ADD3fn                  54
+#define MARK_ANSWERfn           55
 
 
 // the total number of user-defined functions above
-#define NUMUSERFUNCTIONS        23
+#define NUMUSERFUNCTIONS        24
 
 // 3. calling the user-defined transformation functions when corresponding function code has been recognised in the .scp code
 #define USERTRANSFORMFUNCTIONS \
@@ -90,7 +92,8 @@
         case ADD_V2fn:          if (_matchedok(m1,m2,t1,t2,not)) { ret = Add_v2(s[i1].schema1, s[i1].schema2, s[i2].schema2); PRINTFF("\nADD_V2 "); } break;\
         case ADD1fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add1(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD1 "); } break;\
         case ADD2fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add2(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD2 "); } break;\
-        case ADD3fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add3(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD3 "); } break;
+        case ADD3fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add3(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD3 "); } break;\
+        case MARK_ANSWERfn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Mark_answer(s[i1].schema1); PRINTFF("\nMARK_ANSWER "); } break;
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
 int Root(unsigned char *s1, unsigned char *s2);
@@ -116,6 +119,7 @@ int Add_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22);
 int Add1(unsigned char *s11,unsigned char *s12);
 int Add2(unsigned char *s11,unsigned char *s12);
 int Add3(unsigned char *s11,unsigned char *s12);
+int Mark_answer(unsigned char *s11);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:
