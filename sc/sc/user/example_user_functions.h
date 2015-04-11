@@ -29,7 +29,10 @@
                                 addfunction("TAG_FITNESS");\
                                 addfunction("TAG_CHAIN");\
                                 addfunction("BITMARK2");\
-                                addfunction("BITMARK_INIT");
+                                addfunction("BITMARK_INIT");\
+                                addfunction("ADD1");\
+                                addfunction("ADD2");\
+                                addfunction("ADD3");
                      
 
 
@@ -54,10 +57,14 @@
 #define TAG_CHAINfn             48
 #define BITMARK2fn              49
 #define BITMARK_INITfn          50
+#define ADD_V2fn                51
+#define ADD1fn                  52
+#define ADD2fn                  53
+#define ADD3fn                  54
 
 
 // the total number of user-defined functions above
-#define NUMUSERFUNCTIONS        19
+#define NUMUSERFUNCTIONS        23
 
 // 3. calling the user-defined transformation functions when corresponding function code has been recognised in the .scp code
 #define USERTRANSFORMFUNCTIONS \
@@ -79,8 +86,11 @@
         case TAG_FITNESSfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_fitness(s,s[i1].schema2,scppos,scopetable); PRINTFF("\nTAG_FITNESS"); } break;\
         case TAG_CHAINfn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_chain(s,i1,scppos,scopetable, chain); PRINTFF("\n TAG_CHAIN"); } break;\
         case BITMARK2fn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark2(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK2"); } break;\
-        case BITMARK_INITfn:    if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark_init(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK_INNNIT"); } break;
-
+        case BITMARK_INITfn:    if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark_init(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK_INNNIT"); } break;\
+        case ADD_V2fn:          if (_matchedok(m1,m2,t1,t2,not)) { ret = Add_v2(s[i1].schema1, s[i1].schema2, s[i2].schema2); PRINTFF("\nADD_V2 "); } break;\
+        case ADD1fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add1(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD1 "); } break;\
+        case ADD2fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add2(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD2 "); } break;\
+        case ADD3fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add3(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD3 "); } break;
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
 int Root(unsigned char *s1, unsigned char *s2);
@@ -93,7 +103,7 @@ int XChains(unsigned char *s1, unsigned char *s2, int chainnum, chainlink **chai
 int Bitmark(unsigned char *s1, unsigned char *s2);
 
 int Incrementor(unsigned char *s1, unsigned char *s2);
-int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s2);
+int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22);
 int Bitmarkp1(unsigned char *s11, unsigned char *s21, unsigned char *s22);
 int Recorder(unsigned char *s12, unsigned char *s22);
 int Resetter(unsigned char *s11, unsigned char *s21);
@@ -102,6 +112,10 @@ int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable);
 int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **chain);
 int Bitmark2(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
 int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
+int Add_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22);
+int Add1(unsigned char *s11,unsigned char *s12);
+int Add2(unsigned char *s11,unsigned char *s12);
+int Add3(unsigned char *s11,unsigned char *s12);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:

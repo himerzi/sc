@@ -10,6 +10,7 @@ void user_initialise(char *name1,char *name2,char *name3,char *name4,systemic *s
 // automatically called at the start of execution;
 // up to four input and/or output filenames may be specified in scp.ini and will be passed here
 {
+     srand(time(NULL)); // randomize seed
     // declare memory
     // setup i/o files
 }
@@ -151,7 +152,7 @@ int Bitmark(unsigned char *s1, unsigned char *s2)
 int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context)
 // Adds a marker to  S11
 {
-    int chnum, fno;
+    int chnum;
     unsigned char *s1 = s[i1].schema1;
     unsigned char *s2 = s[i2].schema1;
     // transforms positive num into binary with length l
@@ -176,12 +177,23 @@ int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chai
         if (chain[chnum][0].systemnum != context) { printf("\nError: Chain for system not found. Chain broken.//"); }
     }
     //how do u convt to funciton format....
+    //choose any funciton out of 42, 51, 52, 53, 54
 
     
-    schematoi(s[12].function, 8, &fno);
-   if (fno  != 0) // might be 9...
+
+    int funcOptions[5] = { 42, 51 ,52 ,53 ,54};
+    int fno1, fno2, choice1, choice2, optionsSize = 5;
+    
+    choice1 = rand()%optionsSize;
+    choice2 = rand()%optionsSize;
+    int hollow1 = chain[chnum][1].systemnum;
+    int hollow2 = chain[chnum][2].systemnum;
+    schematoi(s[hollow1].function, 8, &fno1);
+    schematoi(s[hollow2].function, 8, &fno2);
+   if (fno1  == 0 && fno2 == 0) // might be 9...
     {
-        itofunction(42, s[12].function);
+        itofunction(funcOptions[choice1], s[hollow1].function);
+        itofunction(funcOptions[choice2], s[hollow2].function);
     }
 
     return 0;
@@ -229,13 +241,13 @@ int Incrementor(unsigned char *s12, unsigned char *s22)
     return 0;
 }
 
-int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s2)
+int Mult_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22)
 // multiplies binary values s1 * s2, placing results in s1 and, differently to normal mult, preserves original value of s22; under/overflow is ignored, other characters are ignored. Marks s11 with a special marking 
 {    int a, b;
     
     // do it the lazy way
     schematoi(s12,schemasize,&a);//取变量地址
-    schematoi(s2,schemasize,&b);
+    schematoi(s22,schemasize,&b);
     //mark it with a 20
     itoschema(20, s11);
     //store the answer
@@ -327,6 +339,55 @@ int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **cha
     return 0;
 }
 
+int Add_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22)
+// adds binary values s12 + s22, places result in s1(2), marks s11 with 20 to indicate s1 has the result
+{    int a, b;
+    
+    // do it the lazy way
+    schematoi(s12,schemasize,&a);//取变量地址
+    schematoi(s22,schemasize,&b);
+    //mark it with a 20, do denote it carries the "answer"
+    //itoschema(20, s11);
+    //store the answer
+    itoschema(a+b,s12);
+    
+    return 0;
+}
+
+int Add1(unsigned char *s11,unsigned char *s12)
+// adds 1 to the value of s12
+{    int a;
+    schematoi(s12,schemasize,&a);
+    //mark it with a 20, do denote it carries the "answer"
+   // itoschema(20, s11);
+    //store the answer
+    itoschema(1+a,s12);
+    
+    return 0;
+}
+
+int Add2(unsigned char *s11,unsigned char *s12)
+// adds 2 to the value of s12
+{    int a;
+    schematoi(s12,schemasize,&a);
+    //mark it with a 20, do denote it carries the "answer"
+    //itoschema(20, s11);
+    //store the answer
+    itoschema(2+a,s12);
+    
+    return 0;
+}
+int Add3(unsigned char *s11,unsigned char *s12)
+// adds 3 to the value of s12
+{    int a;
+    schematoi(s12,schemasize,&a);
+    //mark it with a 20, do denote it carries the "answer"
+    //itoschema(20, s11);
+    //store the answer
+    itoschema(3+a,s12);
+    
+    return 0;
+}
 void itofunctionpart(int num, int s, int l, unsigned char *function)
 // transforms positive num into binary with length l
 // and places it in function[] starting at bit s
