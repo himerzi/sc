@@ -269,7 +269,7 @@ void printfunctionsusage()
     for (i = 0; i < 512; i++)
         if (numberfunctionsused[i])
         {
-			printf("%s : %d\n",functions[fmap[i]].name,numberfunctionsused[i]);
+	//		printf("%s : %d\n",functions[fmap[i]].name,numberfunctionsused[i]);
         }
 }
 

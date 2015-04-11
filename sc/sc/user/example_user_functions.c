@@ -354,7 +354,7 @@ int Add_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22)
     return 0;
 }
 
-int Add1(unsigned char *s11,unsigned char *s12)
+int Add1(unsigned char *s12)
 // adds 1 to the value of s12
 {    int a;
     schematoi(s12,schemasize,&a);
@@ -366,7 +366,7 @@ int Add1(unsigned char *s11,unsigned char *s12)
     return 0;
 }
 
-int Add2(unsigned char *s11,unsigned char *s12)
+int Add2(unsigned char *s12)
 // adds 2 to the value of s12
 {    int a;
     schematoi(s12,schemasize,&a);
@@ -377,7 +377,7 @@ int Add2(unsigned char *s11,unsigned char *s12)
     
     return 0;
 }
-int Add3(unsigned char *s11,unsigned char *s12)
+int Add3(unsigned char *s12)
 // adds 3 to the value of s12
 {    int a;
     schematoi(s12,schemasize,&a);

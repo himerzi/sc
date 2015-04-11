@@ -90,10 +90,10 @@
         case BITMARK2fn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark2(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK2"); } break;\
         case BITMARK_INITfn:    if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark_init(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK_INNNIT"); } break;\
         case ADD_V2fn:          if (_matchedok(m1,m2,t1,t2,not)) { ret = Add_v2(s[i1].schema1, s[i1].schema2, s[i2].schema2); PRINTFF("\nADD_V2 "); } break;\
-        case ADD1fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add1(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD1 "); } break;\
-        case ADD2fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add2(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD2 "); } break;\
-        case ADD3fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add3(s[i1].schema1, s[i1].schema2); PRINTFF("\nADD3 "); } break;\
-        case MARK_ANSWERfn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Mark_answer(s[i1].schema1); PRINTFF("\nMARK_ANSWER "); } break;
+        case ADD1fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add1(s[i1].schema2); PRINTFF("\nADD1 "); } break;\
+        case ADD2fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add2(s[i1].schema2); PRINTFF("\nADD2 "); } break;\
+        case ADD3fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add3(s[i1].schema2); PRINTFF("\nADD3 "); } break;\
+        case MARK_ANSWERfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Mark_answer(s[i1].schema1); PRINTFF("\nMARK_ANSWER "); } break;
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
 int Root(unsigned char *s1, unsigned char *s2);
@@ -116,9 +116,9 @@ int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **cha
 int Bitmark2(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
 int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
 int Add_v2(unsigned char *s11,unsigned char *s12, unsigned char *s22);
-int Add1(unsigned char *s11,unsigned char *s12);
-int Add2(unsigned char *s11,unsigned char *s12);
-int Add3(unsigned char *s11,unsigned char *s12);
+int Add1(unsigned char *s12);
+int Add2(unsigned char *s12);
+int Add3(unsigned char *s12);
 int Mark_answer(unsigned char *s11);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
