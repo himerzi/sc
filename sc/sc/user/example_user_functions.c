@@ -148,6 +148,45 @@ int Bitmark(unsigned char *s1, unsigned char *s2)
     return 0;
 }
 
+int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context)
+// Adds a marker to  S11
+{
+    int chnum, fno;
+    unsigned char *s1 = s[i1].schema1;
+    unsigned char *s2 = s[i2].schema1;
+    // transforms positive num into binary with length l
+    // and places it in schema[] starting at bit s
+    //(int num, int s, int l, unsigned char *schema)
+    
+    itoschemapart(3, 0, 2, s1);
+    itoschemapart(3, 0, 2, s2);
+    
+    
+    chnum = s[context].ischained;
+    //TODO, ideally this should only run once for a given solution (because we only need to tag its chain once, I believe the chain id shouldn't change for a solution)
+    if (chnum == NOTCHAINED)
+    {
+        printf("ERROR : This should be the head of a chain, but ischained == NOTCHAINED");
+    }
+    else
+    {
+        
+        itoschema(chnum, s[parent].schema2);
+        // check that the first link matches the system we just executed
+        if (chain[chnum][0].systemnum != context) { printf("\nError: Chain for system not found. Chain broken.//"); }
+    }
+    //how do u convt to funciton format....
+
+    
+    schematoi(s[12].function, 8, &fno);
+   if (fno  != 0) // might be 9...
+    {
+        itofunction(42, s[12].function);
+    }
+
+    return 0;
+}
+
 int Bitmarkp1(unsigned char *s11, unsigned char *s21, unsigned char *s22)
 // Increases marker values of s11 and s21 by 1
 //also checks if s22 (which is the current value of x) is equal to 10, in which case its time to break out of the chain, as this means

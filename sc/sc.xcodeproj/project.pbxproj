@@ -42,6 +42,7 @@
 		6C9A591C1AD68118000BA070 /* passing_data_v4.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = passing_data_v4.sc; sourceTree = "<group>"; };
 		6C9FE45C1AADFEAF005E034B /* more-complicated-exp.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "more-complicated-exp.sc"; sourceTree = "<group>"; };
 		6CA5FC091AD7E30F008EEB7D /* GP_v0.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GP_v0.sc; sourceTree = "<group>"; };
+		6CA5FC0A1AD81B0C008EEB7D /* GP_v1.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GP_v1.sc; sourceTree = "<group>"; };
 		6CDC8E7C1A28C72800A75326 /* scp.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = scp.ini; path = DerivedData/sc/Build/Products/Debug/scp.ini; sourceTree = "<group>"; };
 		D554E11317DF3E770056FC43 /* sc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sc; sourceTree = BUILT_PRODUCTS_DIR; };
 		D554E11F17DF3EDE0056FC43 /* systemic9.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = systemic9.c; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 				6C9FE45C1AADFEAF005E034B /* more-complicated-exp.sc */,
 				6C9A591A1AD447C4000BA070 /* pd4.sc */,
 				6C9A591B1AD56262000BA070 /* chain_play.sc */,
+				6CA5FC0A1AD81B0C008EEB7D /* GP_v1.sc */,
 				6CA5FC091AD7E30F008EEB7D /* GP_v0.sc */,
 				6C9A591C1AD68118000BA070 /* passing_data_v4.sc */,
 				6C33B1351AD3E76100D5502D /* passing_data_v3.sc */,

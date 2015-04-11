@@ -28,7 +28,8 @@
                                 addfunction("ESCAPE_BOTH");\
                                 addfunction("TAG_FITNESS");\
                                 addfunction("TAG_CHAIN");\
-                                addfunction("BITMARK2");
+                                addfunction("BITMARK2");\
+                                addfunction("BITMARK_INIT");
                      
 
 
@@ -52,10 +53,11 @@
 #define TAG_FITNESSfn           47
 #define TAG_CHAINfn             48
 #define BITMARK2fn              49
+#define BITMARK_INITfn          50
 
 
 // the total number of user-defined functions above
-#define NUMUSERFUNCTIONS        18
+#define NUMUSERFUNCTIONS        19
 
 // 3. calling the user-defined transformation functions when corresponding function code has been recognised in the .scp code
 #define USERTRANSFORMFUNCTIONS \
@@ -76,7 +78,8 @@
         case ESCAPE_BOTHfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Escape_both(s,i1,i2,scppos,scopetable); PRINTFF("\n>{ESC_BOTH}<"); } break;\
         case TAG_FITNESSfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_fitness(s,s[i1].schema2,scppos,scopetable); PRINTFF("\nTAG_FITNESS"); } break;\
         case TAG_CHAINfn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_chain(s,i1,scppos,scopetable, chain); PRINTFF("\n TAG_CHAIN"); } break;\
-        case BITMARK2fn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark2(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK2"); } break;
+        case BITMARK2fn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark2(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK2"); } break;\
+        case BITMARK_INITfn:    if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark_init(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK_INNNIT"); } break;
 
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
@@ -98,6 +101,7 @@ int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable);
 int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable);
 int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **chain);
 int Bitmark2(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
+int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:
