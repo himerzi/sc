@@ -85,7 +85,7 @@
         case RECORDERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Recorder(s[i1].schema2, s[i2].schema2); PRINTFF("\n>{RECORDER}<"); } break;\
         case RESETTERfn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Resetter(s[i1].schema1, s[i2].schema1); PRINTFF("\n>{RESETTER}<"); } break;\
         case ESCAPE_BOTHfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Escape_both(s,i1,i2,scppos,scopetable); PRINTFF("\n>{ESC_BOTH}<"); } break;\
-        case TAG_FITNESSfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_fitness(s,s[i1].schema2,scppos,scopetable); PRINTFF("\nTAG_FITNESS"); } break;\
+        case TAG_FITNESSfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_fitness(s,s[i1].schema2,scppos,scopetable, chain); PRINTFF("\nTAG_FITNESS"); } break;\
         case TAG_CHAINfn:       if (_matchedok(m1,m2,t1,t2,not)) { ret = Tag_chain(s,i1,scppos,scopetable, chain); PRINTFF("\n TAG_CHAIN"); } break;\
         case BITMARK2fn:        if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark2(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK2"); } break;\
         case BITMARK_INITfn:    if (_matchedok(m1,m2,t1,t2,not)) { ret = Bitmark_init(s,i1,i2,scppos,scopetable, chain, context); PRINTFF("\n BMARK_INNNIT"); } break;\
@@ -111,7 +111,7 @@ int Bitmarkp1(unsigned char *s11, unsigned char *s21, unsigned char *s22);
 int Recorder(unsigned char *s12, unsigned char *s22);
 int Resetter(unsigned char *s11, unsigned char *s21);
 int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable);
-int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable);
+int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable, chainlink **chain);
 int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **chain);
 int Bitmark2(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
 int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chainlink **chain, int context);
@@ -120,6 +120,7 @@ int Add1(unsigned char *s12);
 int Add2(unsigned char *s12);
 int Add3(unsigned char *s12);
 int Mark_answer(unsigned char *s11);
+void testing(int fitness, unsigned char *chnum, chainlink **chain);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:

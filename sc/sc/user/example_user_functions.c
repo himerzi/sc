@@ -295,7 +295,7 @@ int Escape_both(systemic *s, int i1, int i2, int parent,int **scopetable)
     return 0;
 }
 
-int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable)
+int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable, chainlink **chain)
 //Places the fitness value on to the main systems left schema
 //s12 is the fitness value
 {
@@ -307,15 +307,19 @@ int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable)
         if (scopetable[n][parent] > 0)
         {
             itoschema(fitness, s[n].schema1);
+            //for testing purposes
+            testing(fitness, s[n].schema2, chain);
             break;
         }
+
     //schema one of main stores the fitness value for this candidate solution.
     return 0;
 }
 
 
 int Tag_chain(systemic *s, int i1, int parent, int **scopetable, chainlink **chain)
-/// Places the head of the chain on to the main system's right schema
+// this doesnt get called anymore. bitmark_init does this now
+//Places the head of the chain on to the main system's right schema
 {
     printf("TAGS");
  
@@ -394,6 +398,33 @@ int Mark_answer(unsigned char *s11)
 {
     itoschema(20, s11);
     return 0;
+}
+
+void testing(int fitness, unsigned char *schema_chnum, chainlink **chain)
+{
+    FILE *ofp;
+    
+    char outputFilename[] = "tests.txt";
+
+    ofp = fopen(outputFilename, "w");
+    
+    if (ofp == NULL) {
+        fprintf(stderr, "Can't open output file %s!\n",
+                outputFilename);
+        exit(1);
+    }
+    
+    int chnum, sys1, sys2;
+    schematoi(schema_chnum, schemasize, &chnum);
+    sys1 = chain[chnum][1].systemnum;
+    sys2 = chain[chnum][2].systemnum;
+    
+    char functionname1[128], functionname2[128];
+    // look up the function name for s[n].function
+    strcpy(functionname1, systemfunctions[sys1].name);
+    strcpy(functionname2, systemfunctions[sys2].name);
+    fprintf(ofp, "%s result: %d\n", sys1name, sys2name, fitness);
+    fclose(ofp);
 }
 
 void itofunctionpart(int num, int s, int l, unsigned char *function)
