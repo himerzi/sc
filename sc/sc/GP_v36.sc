@@ -1,3 +1,6 @@
+// Auto-generated output from decompiler.
+// Original source: /Users/md/Documents/UCL 3/final year project/code/sc/sc/GP_v3.sc
+
 #systemic start
 // define the functions
 #function NOP               %b00000000000000000000000000000000
@@ -60,54 +63,34 @@
 // and the program begins here:
 // and the program begins here:
 //0
-[0:1]main (%d0 %d0 %d0)
-//1
-//where the data gets recorded & recycled
-[0:1]data_center (bin_label %d0 %d0)
-//2
-data0_0 (num %d0 %d1)
-//3
-data0_1 (num %d0 %d1)
-//4
-[0:1]fitness (%d19 %d0 %d0)
-
-//Main scope
-//5
-[0:1]capt_ans ([%d20 zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
-//6
+main0 (%d3025 NOP(0,0) %d2)
+main1 (%d130 NOP(0,0) %d5)
+[0:1]data_center (%d11 NOP(0,0) %d0)
+data0 (%d3 NOP(0,0) %d11)
+data0 (%d20 NOP(0,0) %d1331)
+fitness0 (%d19 NOP(0,0) %d3025)
+fitness1 (%d19 NOP(0,0) %d130)
+[0:1]capt_ans ([dontcare zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
 [0:1]capt ([three zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
-//7
 [0:1]esc ([num zero dontcare] ESCAPE_BOTH(0,0) [num zero dontcare])
-//8
 [0:1]times ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
-//9
 [0:1]incrementor ([num zero dontcare] INCREMENTOR(0,0) [num zero dontcare])
-//marks the number three on left schema
-//10
 [0:1]bmark ([num zero dontcare] BITMARK_INIT(0,0) [num zero dontcare])
-//data-center scope
-//these two are just used for debugging
-//the answer is in 20 -> 21. the  x value is in 3 -> 4
-output ([%d21 zero dontcare] PRINT(0,0) [%d4 zero dontcare])
+output ([dontcare zero dontcare] PRINT(0,0) [four zero dontcare])
 tst_output ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//14
-[0:1]data_mark ([%d20 zero dontcare] BITMARKP1(0,0) [three zero dontcare])
-//15
-[0:1]rec ([%d21 zero dontcare] RECORDER(0,0) [%d19 zero dontcare])
-//16
-[0:1]res ([%d21 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
-//17
-[0:1]tagf ([%d19 zero dontcare] TAG_FITNESS(0,0) [dontcare dontcare dontcare])
-mark_ans ([three zero dontcare] MARK_ANSWER(0,0) [dontcare dontcare dontcare])
-universe (%d0 %d0 %d0)
-//read_main ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
-//blah (%d0 %d0 %d0)
-[0:1]hollow0 ([three zero dontcare] NOP(0,0) [three zero dontcare])
-[0:1]hollow1 ([three zero dontcare] NOP(0,0) [three zero dontcare])
-//try sharing the data systems?
-data1_0 (num %d0 %d1)
-data1_1 (num %d0 %d1)
+[0:1]data_mark ([dontcare zero dontcare] BITMARKP1(0,0) [three zero dontcare])
+[0:1]rec ([dontcare zero dontcare] RECORDER(0,0) [dontcare zero dontcare])
+[0:1]res ([dontcare zero dontcare] RESETTER(0,0) [four zero dontcare])
+[0:1]tagf ([dontcare zero dontcare] TAG_FITNESS(0,0) [dontcare dontcare dontcare])
+mark_ans ([three zero dontcare] (0,0) [dontcare dontcare dontcare])
+universe (%d0 NOP(0,0) %d0)
+[0:1]hollow ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
+hollow10 ([three zero dontcare] ADD3(0,0) [three zero dontcare])
+hollow11 ([three zero dontcare] ADD1(0,0) [three zero dontcare])
+data1 (%d20 NOP(0,0) %d24)
+data1 (%d3 NOP(0,0) %d11)
 
+// set up any chains
 #chain data_mark0
 {
 ($L output $R) + ($L rec0 ?A) + ($L tst_output A) + ($L res0 $R) + ($L incrementor0 $R) + ($L esc0 $R)
@@ -130,46 +113,43 @@ data1_1 (num %d0 %d1)
 ($L hollow10 $R) + ($L hollow11 $R) +  ($L mark_ans $R) +  ($L capt_ans1 ?A) + ($R capt1 A)
 }
 
-#scope universe
-{
-main0
-main1
-}
 
+// set up the scopes
 #scope main0
 {
-capt0
-capt_ans0
-data_center0
-data0_0
-data0_1
-//times0
-bmark0
-
-}
-
-#scope data_center0
-{
-fitness0
-data_mark0
+      data_center0
+      capt_ans0
+      capt0
+      bmark0
 }
 
 #scope main1
 {
-capt1
-capt_ans1
-data_center1
-data1_0
-data1_1
-//times1
-bmark1
+      data_center1
+      capt_ans1
+      capt1
+      bmark1
+}
 
+#scope data_center0
+{
+      data0
+      data0
+      fitness0
+      data_mark0
 }
 
 #scope data_center1
 {
-fitness1
-data_mark1
+      fitness1
+      data_mark1
+      data1
+      data1
+}
+
+#scope universe
+{
+      [0:1]main
 }
 
 #systemic end

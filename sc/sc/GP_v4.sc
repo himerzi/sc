@@ -65,9 +65,9 @@
 //where the data gets recorded & recycled
 [0:1]data_center (bin_label %d0 %d0)
 //2
-data0_0 (num %d0 %d1)
+[0:1]data0 (num %d0 %d1)
 //3
-data0_1 (num %d0 %d1)
+[0:1]data1 (num %d0 %d1)
 //4
 [0:1]fitness (%d19 %d0 %d0)
 
@@ -79,7 +79,7 @@ data0_1 (num %d0 %d1)
 //7
 [0:1]esc ([num zero dontcare] ESCAPE_BOTH(0,0) [num zero dontcare])
 //8
-[0:1]times ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
+
 //9
 [0:1]incrementor ([num zero dontcare] INCREMENTOR(0,0) [num zero dontcare])
 //marks the number three on left schema
@@ -98,7 +98,7 @@ tst_output ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 [0:1]res ([%d21 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
 //17
 [0:1]tagf ([%d19 zero dontcare] TAG_FITNESS(0,0) [dontcare dontcare dontcare])
-mark_ans ([three zero dontcare] MARK_ANSWER(0,0) [dontcare dontcare dontcare])
+[0:1]mark_ans ([three zero dontcare] MARK_ANSWER(0,0) [dontcare dontcare dontcare])
 universe (%d0 %d0 %d0)
 //read_main ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //blah (%d0 %d0 %d0)
@@ -108,68 +108,39 @@ universe (%d0 %d0 %d0)
 data1_0 (num %d0 %d1)
 data1_1 (num %d0 %d1)
 
-#chain data_mark0
+#chain [0:1]data_mark
 {
-($L output $R) + ($L rec0 ?A) + ($L tst_output A) + ($L res0 $R) + ($L incrementor0 $R) + ($L esc0 $R)
-(?A tagf0 ?B)
+($L output $R) + ($L [0:1]rec ?A) + ($L tst_output A) + ($L [0:1]res $R) + ($L [0:1]incrementor $R) + ($L [0:1]esc $R)
+(?A [0:1]tagf0 ?B)
 }
 
-#chain bmark0
+#chain [0:1]bmark
 {
-($L hollow00 $R) + ($L hollow01 $R) +  ($L mark_ans $R) + ($L capt_ans0 ?A) + ($R capt0 A)
+($L [0:1]hollow0 $R) + ($L [0:1]hollow1 $R) +  ($L [0:1]mark_ans $R) + ($L [0:1]capt_ans0 ?A) + ($R  [0:1]capt0 A)
 }
 
-#chain data_mark1
-{
-($L output $R) + ($L rec1 ?A) + ($L tst_output A) + ($L res1 $R) + ($L incrementor1 $R) + ($L esc1 $R)
-(?A tagf1 ?B)
-}
-
-#chain bmark1
-{
-($L hollow10 $R) + ($L hollow11 $R) +  ($L mark_ans $R) +  ($L capt_ans1 ?A) + ($R capt1 A)
-}
 
 #scope universe
 {
-main0
-main1
+[0:1]main
 }
 
-#scope main0
+#scope [0:1]main
 {
-capt0
-capt_ans0
-data_center0
-data0_0
-data0_1
-//times0
-bmark0
+[0:1]capt
+[0:1]capt_ans
+[0:1]data_center
+[0:1]data0
+[0:1]data1
+[0:1]bmark
 
 }
 
-#scope data_center0
+#scope [0:1]data_center
 {
-fitness0
-data_mark0
+[0:1]fitness
+[0:1]data_mark
 }
 
-#scope main1
-{
-capt1
-capt_ans1
-data_center1
-data1_0
-data1_1
-//times1
-bmark1
-
-}
-
-#scope data_center1
-{
-fitness1
-data_mark1
-}
 
 #systemic end

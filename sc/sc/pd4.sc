@@ -31,6 +31,11 @@
 #function RECORDER          %d44
 #function RESETTER          %d45
 #function ESCAPE_BOTH       %d46
+#function TAG_FITNESS       %d47
+#function TAG_CHAIN         %d48
+#function BITMARK2          %d49
+#function BITMARK_INIT      %d50
+#function MARK_ANSWER       %d55
 
 
 // define some useful labels
@@ -50,18 +55,20 @@
 #label onetwoeight          %b???????1????????????????????????
 #label nooutput             %b????????0???????????????????????
 #label notone               %b0???????????????????????????????
+#label bitmk                %b00010100000000000000000000000000
 
 // and the program begins here:
+// and the program begins here:
 //0
-main (%d0 %d0 %d0)
-//where the data gets recorded & recycled
+[0:3]main (%d0 %d0 %d0)
 //1
-data_center (bin_label %d0 %d0)
+//where the data gets recorded & recycled
+[0:3]data_center (bin_label %d0 %d0)
 //2
-data1_0 (num %d0 %d0)
+data0 (num %d0 %d1)
 //3
-data1_1 (num %d0 %d0)
-//4
+data1 (num %d0 %d1)
+//
 fitness (%d19 %d0 %d0)
 
 //Main scope
@@ -72,57 +79,68 @@ capt ([three zero dontcare] CAPTURE(0,0) [bin_label zero dontcare])
 //7
 esc ([num zero dontcare] ESCAPE_BOTH(0,0) [num zero dontcare])
 //8
-times ([three zero dontcare] MULT_V2(0,0) [three zero dontcare])
+
 //9
 incrementor ([num zero dontcare] INCREMENTOR(0,0) [num zero dontcare])
 //marks the number three on left schema
 //10
-bmark ([num zero dontcare] BITMARK(0,0) [num zero dontcare])
+[0:3]bmark ([num zero dontcare] BITMARK_INIT(0,0) [num zero dontcare])
 //data-center scope
+//these two are just used for debugging
+//the answer is in 20 -> 21. the  x value is in 3 -> 4
 output ([%d21 zero dontcare] PRINT(0,0) [%d4 zero dontcare])
 tst_output ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
 //14
-data_mark ([%d20 zero dontcare] BITMARKP1(0,0) [three zero dontcare])
+[0:3]data_mark ([%d20 zero dontcare] BITMARKP1(0,0) [three zero dontcare])
+//15
 rec ([%d21 zero dontcare] RECORDER(0,0) [%d19 zero dontcare])
+//16
 res ([%d21 zero dontcare] RESETTER(0,0) [%d4 zero dontcare])
+//17
+tagf ([%d19 zero dontcare] TAG_FITNESS(0,0) [dontcare dontcare dontcare])
+mark_ans ([three zero dontcare] MARK_ANSWER(0,0) [dontcare dontcare dontcare])
+universe (%d0 %d0 %d0)
+//read_main ([dontcare zero dontcare] PRINT(0,0) [dontcare zero dontcare])
+//blah (%d0 %d0 %d0)
+hollow0 ([three zero dontcare] NOP(0,0) [three zero dontcare])
+hollow1 ([three zero dontcare] NOP(0,0) [three zero dontcare])
+//try sharing the data systems?
+data1_0 (num %d0 %d1)
+data1_1 (num %d0 %d1)
 
-//#chain times
-//{
-//($L capt_ans ?A)
-//}
-
-#chain bmark
+#chain [0:3]data_mark
 {
-($L times $R) + ($L capt_ans ?A) + ($R capt A)
+($L output $R) + ($L rec ?A) + ($L tst_output A) + ($L res $R) + ($L incrementor $R) + ($L esc $R)
+(?A tagf ?B)
 }
 
-#chain data_mark
+#chain [0:3]bmark
 {
-($L output $R) + ($L rec ?A) + ($L tst_output A) + ($L res $R) + ($L tst_output $R) + ($L incrementor $R) + ($L tst_output $R) + ($L esc $R)
+($L hollow0 $R) + ($L hollow1 $R) +  ($L mark_ans $R) + ($L capt_ans ?A) + ($R capt A)
 }
-// )//+ ($L recorder ?A) + ($L resetter $R)  + ($L incrementor $R) + ($L esc $R)
-// set up the scopes
 
-#scope main
+
+#scope universe
+{
+[0:3]main
+}
+
+#scope [0:3]main
 {
 capt
 capt_ans
-data_center
-data1_0
-data1_1
-times
-bmark
+[0:3]data_center
+data0
+data1
+[0:3]bmark
+
 }
 
-#scope data_center
+#scope [0:3]data_center
 {
-//output
-//recorder
-//resetter
-//incrementor
 fitness
-//esc
-data_mark
+[0:3]data_mark
 }
+
 
 #systemic end
