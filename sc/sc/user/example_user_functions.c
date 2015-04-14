@@ -4,6 +4,7 @@
 
 #include "systemic9.h"
 #include "example_user_functions.h"
+#include "sc_functions.h"
 
 
 void user_initialise(char *name1,char *name2,char *name3,char *name4,systemic *s,int **scopetable)
@@ -174,7 +175,9 @@ int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chai
         
         itoschema(chnum, s[parent].schema2);
         // check that the first link matches the system we just executed
-        if (chain[chnum][0].systemnum != context) { printf("\nError: Chain for system not found. Chain broken.//"); }
+        if (chain[chnum][0].systemnum != context) {
+            printf("\nError: Chain for system not found. Chain broken.//");
+        }
     }
     //how do u convt to funciton format....
     //choose any funciton out of 42, 51, 52, 53, 54
@@ -188,10 +191,11 @@ int Bitmark_init(systemic *s, int i1, int i2, int parent, int **scopetable, chai
     choice2 = rand()%optionsSize;
     int hollow1 = chain[chnum][1].systemnum;
     int hollow2 = chain[chnum][2].systemnum;
-    schematoi(s[hollow1].function, 8, &fno1);
-    schematoi(s[hollow2].function, 8, &fno2);
+    schematoi(s[hollow1].function, schemasize, &fno1);
+    schematoi(s[hollow2].function, schemasize, &fno2);
    if (fno1  == 0 && fno2 == 0) // might be 9...
     {
+        //am i using the correct index?
         itofunction(funcOptions[choice1], s[hollow1].function);
         itofunction(funcOptions[choice2], s[hollow2].function);
     }
@@ -308,7 +312,7 @@ int Tag_fitness(systemic *s, unsigned char *s12, int parent, int **scopetable, c
         {
             itoschema(fitness, s[n].schema1);
             //for testing purposes
-            testing(fitness, s[n].schema2, chain);
+            testing(s, fitness, s[n].schema2, chain);
             break;
         }
 
@@ -400,13 +404,13 @@ int Mark_answer(unsigned char *s11)
     return 0;
 }
 
-void testing(int fitness, unsigned char *schema_chnum, chainlink **chain)
+void testing(systemic *s, int fitness, unsigned char *schema_chnum, chainlink **chain)
 {
     FILE *ofp;
     
     char outputFilename[] = "tests.txt";
 
-    ofp = fopen(outputFilename, "w");
+    ofp = fopen(outputFilename, "a");
     
     if (ofp == NULL) {
         fprintf(stderr, "Can't open output file %s!\n",
@@ -415,15 +419,17 @@ void testing(int fitness, unsigned char *schema_chnum, chainlink **chain)
     }
     
     int chnum, sys1, sys2;
+    unsigned char *fn1, *fn2;
     schematoi(schema_chnum, schemasize, &chnum);
-    sys1 = chain[chnum][1].systemnum;
-    sys2 = chain[chnum][2].systemnum;
-    
+    fn1 = s[chain[chnum][1].systemnum].function;
+    fn2 = s[chain[chnum][2].systemnum].function;
+    schematoi(fn1, schemasize, &sys1);
+    schematoi(fn2, schemasize, &sys2);
     char functionname1[128], functionname2[128];
     // look up the function name for s[n].function
-    strcpy(functionname1, systemfunctions[sys1].name);
-    strcpy(functionname2, systemfunctions[sys2].name);
-    fprintf(ofp, "%s result: %d\n", sys1name, sys2name, fitness);
+    strcpy(functionname1, systemfunctions[sys1-1].name);
+    strcpy(functionname2, systemfunctions[sys2-1].name);
+    fprintf(ofp, "%s + %s result: %d\n", functionname1, functionname2, fitness);
     fclose(ofp);
 }
 

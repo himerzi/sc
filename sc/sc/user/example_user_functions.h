@@ -94,6 +94,7 @@
         case ADD2fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add2(s[i1].schema2); PRINTFF("\nADD2 "); } break;\
         case ADD3fn:            if (_matchedok(m1,m2,t1,t2,not)) { ret = Add3(s[i1].schema2); PRINTFF("\nADD3 "); } break;\
         case MARK_ANSWERfn:     if (_matchedok(m1,m2,t1,t2,not)) { ret = Mark_answer(s[i1].schema1); PRINTFF("\nMARK_ANSWER "); } break;
+
 // 4. user-defined transformation functions in C
 int Pow(unsigned char *s1, unsigned char *s2);
 int Root(unsigned char *s1, unsigned char *s2);
@@ -120,7 +121,7 @@ int Add1(unsigned char *s12);
 int Add2(unsigned char *s12);
 int Add3(unsigned char *s12);
 int Mark_answer(unsigned char *s11);
-void testing(int fitness, unsigned char *chnum, chainlink **chain);
+void testing(systemic *s, int fitness, unsigned char *chnum, chainlink **chain);
 ////////////////////////////////// END OF SC_USER-PLUGIN-SPECIFIC CODE ////////////////////////////////
 
 // functions definitions of standard functionset in case user functions want to call them:
